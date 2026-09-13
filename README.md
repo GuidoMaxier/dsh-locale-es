@@ -1,52 +1,53 @@
 # dsh-locale-es
 
-[Español](#español) | English
+Español | [English](README.en.md) | [中文](README.zh.md)
 
-Spanish (es) language pack for the **DeepSeek Harness** Web UI — a community DSH
-client plugin that adds **Español** to *Settings → General → Language*.
+Paquete de idioma **español (es)** para la interfaz web de **DeepSeek Harness** —
+un plugin de cliente de la comunidad que agrega **Español** a
+*Ajustes → General → Idioma*.
 
-It does not patch `node_modules` or the DeepSeek Harness source. It registers
-through the official locale registry (`@deepseek-ai/dsh-client-locale`), and keys
-it does not cover fall back to English automatically.
+No modifica `node_modules` ni el código de DeepSeek Harness. Se registra a través
+del sistema oficial de localización (`@deepseek-ai/dsh-client-locale`), y las
+claves sin traducir caen al inglés automáticamente.
 
-## Install
+## Instalación
 
 ```sh
 dsh plugin --profile web add github:GuidoMaxier/dsh-locale-es
 ```
 
-Restart DSH, then open **Settings → General → Language** and pick **Español**.
+Reiniciá DSH y elegí **Español** en *Ajustes → General → Idioma*.
 
-## Scope
+## Cobertura
 
-- **42 namespaces · 1305 keys** — 1174 translated.
-- Covers the shell and settings (`settings`, `settings.models`, `settings.plugins`,
+- **42 namespaces · 1305 claves** — 1174 traducidas.
+- Cubre el shell y los ajustes (`settings`, `settings.models`, `settings.plugins`,
   `settings.agentPreset`, `settings.pluginInventory`, `settings.permission`), chat
-  and conversation (`chat`, `conversation`), `trajectory`, `workspace`, `subagent`,
+  y conversación (`chat`, `conversation`), `trajectory`, `workspace`, `subagent`,
   `workflowRun`, `cordis`, `deliverables`, `approval`, `plan`, `job`, `feedback`,
-  `sidebar`, `common`, and the rest.
-- Missing keys fall back to English (`es` → `en`), which is the official DSH
-  mechanism, so a newer DSH never breaks the UI.
+  `sidebar`, `common` y el resto.
+- Las claves sin cubrir caen al inglés (`es` → `en`), que es el mecanismo oficial
+  de DSH: una versión más nueva nunca rompe la interfaz.
 
-## How it works
+## Cómo funciona
 
-A regular DSH **client plugin**, in two halves:
+Un **plugin de cliente** de DSH normal, en dos mitades:
 
-| File | Role |
+| Archivo | Rol |
 |---|---|
-| `index.js` | Host half — empty on purpose. Plain JavaScript, no build step. |
-| `lib/client.js` | Browser half — generated, and **committed**; this is what the browser downloads. |
-| `cordis.patch.yml` | Profile layer that mounts the plugin as a loader row. |
-| `data/es-dictionaries.json` | Translation source of truth. |
-| `data/en-dictionaries.json` | Generated: the English corpus extracted from a DSH checkout. |
-| `data/patches/*.json` | Translation batches, applied in order. |
-| `data/terminology.json` | Phrase substitutions that keep labels short. |
-| `tools/*.ts` | Extraction, build, sync, check and progress scripts. |
+| `index.js` | Mitad Host — vacía a propósito. JavaScript plano, sin build. |
+| `lib/client.js` | Mitad navegador — generado, y **commiteado**; es lo que descarga el navegador. |
+| `cordis.patch.yml` | Capa de perfil que monta el plugin como fila del loader. |
+| `data/es-dictionaries.json` | Fuente de verdad de la traducción. |
+| `data/en-dictionaries.json` | Generado: el corpus inglés extraído de un checkout de DSH. |
+| `data/patches/*.json` | Lotes de traducción, aplicados en orden. |
+| `data/terminology.json` | Sustituciones de frase que mantienen las etiquetas cortas. |
+| `tools/*.ts` | Scripts de extracción, build, sincronización, control y progreso. |
 
-### The bundle protocol
+### El protocolo del bundle
 
-`lib/client.js` is **not** plain ESM. `client-modules` composes one bundle with
-every client plugin, and each module registers itself:
+`lib/client.js` **no** es ESM plano. `client-modules` compone un único bundle con
+todos los plugins de cliente, y cada módulo se registra a sí mismo:
 
 ```js
 window.__ModuleLoader__.load({
@@ -60,83 +61,64 @@ window.__ModuleLoader__.load({
 })
 ```
 
-A bundle that only exports ESM symbols **loads without registering**, and the
-loader then reports the failure against a *different* plugin, because the
-registration count desynchronizes. `tools/build-client.ts` emits the correct form.
+Un bundle que solo exporta símbolos ESM **carga sin registrarse**, y el loader
+reporta el error contra **otro** plugin, porque el conteo de registros se
+desalinea. `tools/build-client.ts` emite la forma correcta.
 
-## Development
+## Desarrollo
 
-The scripts need `tsx` from a DeepSeek Harness checkout, so run them there:
+Los scripts necesitan `tsx` de un checkout de DeepSeek Harness, así que corren ahí:
 
 ```sh
-# Re-extract the English corpus from an updated checkout
+# Re-extraer el corpus inglés de un checkout actualizado
 node --import tsx/esm tools/extract-dictionaries.ts <repo-root> data/en-dictionaries.json
 
-# Bring new keys into es without overwriting translations (seeded in English)
+# Traer las claves nuevas sin pisar lo traducido (se siembran en inglés)
 node --import tsx/esm tools/sync-es.ts data/en-dictionaries.json data/es-dictionaries.json
 
-# Apply a translation batch (replaces existing keys only)
+# Aplicar un lote de traducción (reemplaza solo claves existentes)
 node --import tsx/esm tools/apply-patch.ts data/es-dictionaries.json data/patches/38-nuevo.json
 
-# Rebuild the browser bundle — commit the result
+# Regenerar el bundle — commitear el resultado
 node --import tsx/esm tools/build-client.ts data/es-dictionaries.json lib/client.js
 
-# What is still pending
+# Qué falta todavía
 node --import tsx/esm tools/report-progress.ts data/en-dictionaries.json data/es-dictionaries.json
 ```
 
-To test without installing, mount the pack as an overlay. **`--patch` must come
-before the app's own flags** (the `web` subcommand uses `passThroughOptions()`, so
-an app flag first cuts the launcher's parse):
+Para probar sin instalar, montá el pack como overlay. **`--patch` va antes de los
+flags del app** (el subcomando `web` usa `passThroughOptions()`, así que un flag
+del app primero corta el parseo del launcher):
 
 ```sh
-pnpm dsh web --patch <repo>/cordis.patch.yml --no-open      # correct
+pnpm dsh web --patch <repo>/cordis.patch.yml --no-open      # correcto
 pnpm dsh web --no-open --patch <repo>/cordis.patch.yml      # error: unknown option
 ```
 
-## Terminology
+## Terminología
 
-- Technical terms stay in English where Spanish-speaking developers already use
-  them: **workspace, plugin, prompt, shell, token, timeline, tool calls**.
-- Command tokens (`compact`, `export`, `plan`…) are never translated: they are what
-  you type on the command line.
-- Labels are kept short on purpose. Spanish runs longer than English, and
-  fixed-width elements (buttons, chips, sidebar rows) have little room; the
-  `terminology.json` table is the reviewed record of those choices.
+- Los términos técnicos se quedan en inglés donde los desarrolladores hispanos ya
+  los usan: **workspace, plugin, prompt, shell, token, timeline, tool calls**.
+- Los tokens de comando (`compact`, `export`, `plan`…) no se traducen nunca: son lo
+  que se escribe en la línea de comandos.
+- Las etiquetas se mantienen cortas a propósito. El español es más largo que el
+  inglés y los elementos de ancho fijo (botones, chips, filas del sidebar) tienen
+  poco espacio; la tabla `terminology.json` es el registro revisado de esas
+  decisiones.
 
-## What cannot be translated through the locale registry
+## Lo que el registro de locale no puede traducir
 
-- **Permission preset identifiers** (`Read Only`, `Workspace Write`, `Full access`)
-  — the core defines them without display names.
-- **Tool names** (`Bash`, `Read`, `Write`, …) — technical identifiers.
-- Model output, file paths and other data, obviously.
+- **Identificadores de presets de permisos** (`Read Only`, `Workspace Write`,
+  `Full access`) — el core los define sin nombres para mostrar.
+- **Nombres de herramientas** (`Bash`, `Read`, `Write`, …) — identificadores técnicos.
+- La salida del modelo, las rutas de archivos y otros datos, obviamente.
 
-## Credits
+## Créditos
 
 **Hernán Casasola** — [LinkedIn](https://www.linkedin.com/in/hernan-casasola) ·
 GitHub [@GuidoMaxier](https://github.com/GuidoMaxier)
 
-## License and disclaimer
+## Licencia y aviso
 
-MIT. Unofficial community project, independently developed and maintained; not
-reviewed or endorsed by DeepSeek.
-
----
-
-## Español
-
-Paquete de idioma **español (es)** para la interfaz web de **DeepSeek Harness** —
-un plugin de cliente de la comunidad que agrega **Español** a
-*Ajustes → General → Idioma*.
-
-No modifica `node_modules` ni el código de DeepSeek Harness. Se registra a través
-del sistema oficial de localización (`@deepseek-ai/dsh-client-locale`), y las
-claves sin traducir caen al inglés automáticamente. **42 namespaces · 1305 claves.**
-
-Instalación:
-
-```sh
-dsh plugin --profile web add github:GuidoMaxier/dsh-locale-es
-```
-
-Reiniciá DSH y elegí **Español** en *Ajustes → General → Idioma*.
+MIT. Proyecto no oficial de la comunidad, desarrollado y mantenido de forma
+independiente; no fue revisado ni respaldado por DeepSeek.
