@@ -1,0 +1,13 @@
+{
+  "session-log-download": {
+    "dialog.close": "Cerrar",
+    "dialog.commandFailed": "No se pudo iniciar la exportación de la sesión.",
+    "dialog.errorTitle": "Falló la exportación de la sesión",
+    "dialog.preparingDescription": "Preparando un ZIP con esta sesión, sus subsesiones y los adjuntos.",
+    "dialog.preparingTitle": "Exportando la sesión",
+    "dialog.successDescription": "El navegador está descargando el ZIP de la sesión.",
+    "dialog.successTitle": "Empezó la descarga de la sesión",
+    "header.more": "Más acciones",
+    "menu.download": "Descargar el registro de la sesión"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "settings.agentPreset": {
+    "inUse": "Predeterminado",
+    "setDefault": "Predeterminar",
+    "error": "No se pudieron cargar los presets.",
+    "copyOf": "Copiado de",
+    "noDescription": "Sin descripción"
+  },
+  "settings.models": {
+    "fetchAdopt": "Agregar",
+    "customAdd": "Agregar proveedor propio",
+    "modelDuplicate": "Cada ID de modelo, una sola vez.",
+    "contextWindowPlaceholder": "Usa el default del proveedor",
+    "maxTokensPlaceholder": "Usa el default del proveedor",
+    "customApiUnset": "Sin elegir"
+  },
+  "deliverables": {
+    "presented.preview": "Vista previa",
+    "presented.previewCard": "Vista previa de {name}",
+    "presented.explorer": "Mostrar en Explorador",
+    "presented.defaultApp": "Abrir con app por defecto",
+    "presented.opened": "Abierto en la app por defecto"
+  },
+  "conversation": {
+    "image.closePreview": "Cerrar vista previa",
+    "image.preview": "Vista previa de la imagen",
+    "attachment.scrollLeft": "Desplazar a la izquierda",
+    "attachment.scrollRight": "Desplazar a la derecha"
+  },
+  "chat": {
+    "stats.dialog.toolTime": "Tiempo de tools"
+  },
+  "workspace": {
+    "rename": "Renombrar",
+    "rename.session.title": "Renombrar sesión",
+    "rename.workspace.title": "Renombrar workspace",
+    "menu.archiveSession": "Archivar",
+    "menu.fork": "Bifurcar"
+  },
+  "feedback": {
+    "error.generic": "No se pudieron guardar",
+    "error.load": "No se pudieron cargar"
+  },
+  "job": {
+    "count.idle.one": "{count} tarea en segundo plano",
+    "count.idle.other": "{count} tareas en segundo plano",
+    "count.live.one": "{count} tarea en ejecución",
+    "count.live.other": "{count} tareas en ejecución"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "model": {
+    "action.reload": "Recargar",
+    "blocked.composer": "Este modelo no está disponible — selecciona uno para continuar",
+    "command.description": "Selecciona el modelo para esta conversación",
+    "command.label": "Modelo",
+    "effort.providerDefault": "Predeterminado",
+    "empty.efforts": "Este modelo no ofrece niveles de esfuerzo de razonamiento.",
+    "empty.models": "No hay modelos disponibles.",
+    "error.action": "Falló la operación del modelo: {message}",
+    "menu.aria": "Modelo y esfuerzo de razonamiento",
+    "menu.effort": "Esfuerzo",
+    "menu.model": "Modelo",
+    "option.deepseekV4Flash.description": "Rápido, eficiente y económico; ideal para tareas puntuales, rutinarias o en paralelo.",
+    "option.deepseekV4Pro.description": "Programación con agentes, conocimiento y razonamiento difícil más potentes; ideal para tareas complejas o críticas para la calidad, con un costo mayor.",
+    "option.loadError": "No se pudo cargar el catálogo: {message}",
+    "status.loading": "Actualizando la lista de modelos…",
+    "trigger.aria": "Seleccionar modelo, actual {model}",
+    "trigger.ariaEffort": "Seleccionar modelo, actual {model}, esfuerzo de razonamiento {effort}",
+    "trigger.fallback": "Seleccionar modelo",
+    "trigger.loading": "Cargando los modelos…",
+    "trigger.selectAria": "Seleccionar modelo",
+    "warning.groupLoad": "{name} no se pudo cargar: {message}"
+  }
+}

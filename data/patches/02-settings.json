@@ -1,0 +1,30 @@
+{
+  "settings": {
+    "close": "Cerrar",
+    "connection.connected": "Conectado",
+    "connection.connecting": "Reconectando",
+    "connection.error": "Sin conexión",
+    "connection.reconnect": "Sin conexión, reconectar ahora",
+    "connection.restart": "Reconectando automáticamente, reconectar ahora",
+    "connection.retry": "Reconectar ahora",
+    "general.nav": "General",
+    "openDocument": "Abrir archivo de configuración",
+    "openDocument.error": "No se pudo abrir el archivo de configuración",
+    "title": "Ajustes",
+    "trigger": "Ajustes"
+  },
+  "settings.locale": {
+    "language.title": "Idioma"
+  },
+  "settings.theme": {
+    "appearance.dark": "Oscuro",
+    "appearance.light": "Claro",
+    "appearance.system": "Sistema",
+    "appearance.title": "Apariencia",
+    "fontSize.decrease": "Reducir el tamaño de fuente",
+    "fontSize.description": "Solo afecta el contenido de la conversación",
+    "fontSize.increase": "Aumentar el tamaño de fuente",
+    "fontSize.title": "Tamaño de fuente",
+    "fontSize.unit": "px"
+  }
+}

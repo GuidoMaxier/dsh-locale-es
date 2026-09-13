@@ -1,0 +1,64 @@
+{
+  "approval": {
+    "allowOnce": "Permitir una vez",
+    "detail.aria": "Detalles de la aprobación",
+    "escalation": "La herramienta {toolName} solicita ejecución privilegiada",
+    "reject": "Rechazar",
+    "waiting": "Esperando aprobación"
+  },
+  "sidebar": {
+    "panels.label": "Paneles globales",
+    "session.new": "Nueva sesión",
+    "session.new.label": "Nueva sesión",
+    "toggle.collapse": "Contraer la barra lateral",
+    "toggle.open": "Abrir la barra lateral"
+  },
+  "goal": {
+    "action.cancel": "Cancelar edición",
+    "action.clear": "Borrar objetivo",
+    "action.edit": "Editar objetivo",
+    "action.pause": "Pausar objetivo",
+    "action.resume": "Reanudar objetivo",
+    "action.save": "Guardar objetivo",
+    "commandInput.aria": "Entrada de comando",
+    "objective.aria": "Objetivo",
+    "phase.active": "Objetivo en curso",
+    "phase.active.disarmed": "Objetivo inactivo",
+    "phase.blocked": "Objetivo bloqueado",
+    "phase.paused": "Objetivo en pausa"
+  },
+  "question": {
+    "action.next": "Siguiente",
+    "action.skip": "Omitir esta pregunta",
+    "custom.placeholder": "Escribe tu respuesta",
+    "error.incomplete": "Completa esta pregunta primero.",
+    "error.unanswered": "Selecciona una opción o escribe una respuesta personalizada.",
+    "nav.cancel": "Descartar todas las preguntas",
+    "nav.maximize": "Expandir la tarjeta de pregunta",
+    "nav.minimize": "Contraer la tarjeta de pregunta",
+    "nav.next": "Pregunta siguiente",
+    "nav.prev": "Pregunta anterior",
+    "option.recommended": "Recomendado",
+    "plan.approve": "Aprobar",
+    "plan.decline": "Rechazar",
+    "plan.discuss": "Conversar sobre esto",
+    "plan.header": "Revisión del plan"
+  },
+  "job": {
+    "count.idle.one": "{count} tarea en segundo plano",
+    "count.idle.other": "{count} tareas en segundo plano",
+    "count.live.one": "{count} tarea en segundo plano en ejecución",
+    "count.live.other": "{count} tareas en segundo plano en ejecución",
+    "duration.hours": "{hours} h {minutes} min",
+    "duration.minutes": "{minutes} min {seconds} s",
+    "duration.seconds": "{seconds} s",
+    "duration.title.done": "Duró {duration}",
+    "duration.title.live": "En ejecución desde hace {duration}",
+    "list.aria": "Tareas en segundo plano",
+    "status.completed": "completada",
+    "status.failed": "fallida",
+    "status.killed": "cancelada",
+    "status.running": "en ejecución",
+    "status.stopping": "deteniéndose"
+  }
+}

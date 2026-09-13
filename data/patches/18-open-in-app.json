@@ -1,0 +1,11 @@
+{
+  "open-in-app": {
+    "app.explorer": "Explorador de archivos",
+    "app.filemanager": "Archivos",
+    "menu.aria": "Abrir en",
+    "menu.toggle": "Elegir una aplicación para abrir",
+    "open.error": "No se pudo abrir",
+    "open.title": "Abrir el espacio de trabajo en {app}",
+    "open.tooltip": "Abrir localmente"
+  }
+}

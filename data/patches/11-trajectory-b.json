@@ -1,0 +1,33 @@
+{
+  "trajectory": {
+    "options.json": "JSON de opciones de la solicitud",
+    "options.notRecorded": "Opciones no registradas",
+    "record.namedParametersJson": "JSON de parámetros de {name}",
+    "record.noContent": "Sin contenido",
+    "record.noOutput": "Sin salida",
+    "record.noPayload": "No se capturó ningún payload",
+    "record.noResult": "No se capturó ningún resultado",
+    "record.outputJson": "JSON del resultado",
+    "record.parameters": "Parámetros",
+    "record.parametersJson": "JSON de parámetros",
+    "record.payloadJson": "JSON del payload",
+    "record.resultJson": "JSON del resultado",
+    "record.schemaUnavailable": "Esquema no disponible",
+    "record.systemPrompt": "Prompt del sistema",
+    "record.systemPromptMissing": "Esta solicitud no tiene prompt del sistema",
+    "record.thinking": "Pensando",
+    "record.toolCallOnly": "(solo llamada a herramienta)",
+    "record.tools": "Herramientas",
+    "record.toolsMissing": "Esta solicitud no tiene herramientas",
+    "request.collapsedAssistant": "asistente",
+    "request.collapsedSummary": "Resumen de {kind} contraído, {summary}",
+    "request.collapsedTurn": "turno",
+    "request.compaction": "Compactación · {section}",
+    "request.compactionPurpose": "Compactación",
+    "request.label": "Solicitud #{request}",
+    "request.labelCompaction": "Solicitud #{request} · Compactación",
+    "request.noContent": "sin contenido",
+    "request.retryProgress": "{retry} de {maximum}",
+    "request.rowAriaCompaction": "Solicitud {request}, compactación"
+  }
+}

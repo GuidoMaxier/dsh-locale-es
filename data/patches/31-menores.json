@@ -1,0 +1,61 @@
+{
+  "directory-browser": {
+    "browser.cancel": "Cancelar",
+    "browser.create": "Crear",
+    "browser.createIn": "Nueva carpeta en «{name}»",
+    "browser.editPath": "Editar la ruta",
+    "browser.folderName": "Nombre de la carpeta",
+    "browser.home": "Inicio",
+    "browser.loading": "Cargando…",
+    "browser.newFolder": "Nueva carpeta",
+    "browser.open": "Abrir",
+    "browser.showHidden": "Mostrar archivos ocultos",
+    "browser.title": "Seleccionar el directorio del espacio de trabajo",
+    "browser.truncated": "Hay demasiadas carpetas para listar; solo se muestra el principio.",
+    "browser.untitledFolder": "Carpeta sin título"
+  },
+  "reference": {
+    "candidate.noCwd": "(sin directorio de trabajo)",
+    "crumb.root": "Espacio de trabajo",
+    "section.files": "Archivos y carpetas",
+    "section.sessions": "Sesiones",
+    "time.months": "{n}mes",
+    "time.now": "ahora",
+    "time.years": "{n}a"
+  },
+  "sidebarPdf": {
+    "failed": "No se puede mostrar el PDF: {message}",
+    "loading": "Abriendo el PDF…",
+    "pageImage": "Página {page} del PDF",
+    "password": "Este PDF requiere contraseña; las vistas previas protegidas con contraseña no son compatibles.",
+    "rendering": "Renderizando la página…",
+    "retry": "Reintentar",
+    "title": "PDF",
+    "unsupported": "La vista previa de PDF requiere el contenido completo del archivo.",
+    "workerFailed": "El proceso de renderizado del PDF no pudo continuar. Vuelve a intentarlo."
+  },
+  "sidebarImage": {
+    "failed": "No se pudo mostrar esta imagen.",
+    "loading": "Abriendo la imagen…",
+    "preview": "Vista previa de la imagen: {name}",
+    "title": "Imagen",
+    "unsupported": "La vista previa de imagen requiere el contenido completo del archivo."
+  },
+  "documentHtml": {
+    "failed": "No se pudo previsualizar este documento HTML.",
+    "frame": "Vista previa del documento HTML",
+    "loading": "Preparando la vista previa de HTML…",
+    "title": "HTML"
+  },
+  "documentMarkdown": {
+    "code.copied": "Copiado",
+    "code.copy": "Copiar",
+    "footnotes": "Notas al pie",
+    "viewer.label": "Markdown"
+  },
+  "sidebarCodePreview": {
+    "copied": "Copiado",
+    "copy": "Copiar",
+    "title": "Código"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "schedule.catalog": {
+    "frequency.every": "Cada {value} {unit}",
+    "frequency.once": "Una vez",
+    "list.aria": "Recordatorios activos",
+    "relative.future": "en {value} {unit}",
+    "relative.now": "Vence ahora",
+    "relative.overdue": "vencido hace {value} {unit}",
+    "status.overdue": "Vencido",
+    "status.scheduled": "Programado",
+    "trigger.one": "{count} recordatorio",
+    "trigger.other": "{count} recordatorios",
+    "unit.day.one": "día",
+    "unit.day.other": "días",
+    "unit.hour.one": "hora",
+    "unit.hour.other": "horas",
+    "unit.minute.one": "minuto",
+    "unit.minute.other": "minutos",
+    "unit.second.one": "segundo",
+    "unit.second.other": "segundos"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "settings.pluginInventory": {
+    "presetSubtitle": "Los aporta el preset de cada sesión",
+    "globalSubtitle": "Del sistema y de todas las sesiones",
+    "empty": "No hay plugins disponibles.",
+    "emptySearch": "Sin coincidencias."
+  },
+  "settings.plugins": {
+    "intro": "Configura e inspecciona los plugins instalados.",
+    "readOnly": "Ajustes de solo lectura en esta instalación.",
+    "saveFailed": "La instalación no aceptó estos valores; corrígelos.",
+    "empty": "Esta instalación no expone ajustes de plugins."
+  },
+  "settings.models": {
+    "readOnly": "Ajustes de solo lectura en esta instalación."
+  },
+  "settings.agentPreset": {
+    "duplicateUnavailable": "No hay carpeta de presets escribible"
+  }
+}

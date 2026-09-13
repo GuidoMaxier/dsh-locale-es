@@ -1,0 +1,9 @@
+# DSH profile layer: mounts this language pack as a loader row.
+#
+# `dsh plugin --profile web add github:GuidoMaxier/dsh-locale-es` adds the
+# package to the profile's dsh.profile.bundles, and this file is what DSH reads
+# from it. The relative entry is anchored here.
+
+- insert:
+    - id: dsh-locale-es
+      name: './index.js'

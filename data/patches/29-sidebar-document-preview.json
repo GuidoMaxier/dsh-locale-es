@@ -1,0 +1,22 @@
+{
+  "sidebarDocumentPreview": {
+    "changed": "El archivo cambió; se muestra el contenido anterior.",
+    "error.notFound": "No se encontró el archivo. Puede que se haya movido o eliminado.",
+    "error.notRegularFile": "No es un archivo normal; no hay nada que mostrar.",
+    "error.notText": "No es un archivo de texto; la vista previa no está disponible por ahora.",
+    "error.tooLarge": "Esta página supera el límite de {limit} y no se puede leer.",
+    "error.unavailable": "Falló la lectura: {message}",
+    "loading": "Leyendo…",
+    "loadMore": "Cargar más",
+    "openWith": "Abrir con",
+    "reload": "Volver a leer el archivo",
+    "reloadNow": "Recargar",
+    "rendererUnavailable": "La vista previa de {name} no está disponible.",
+    "resourceUnavailable": "El servicio de recursos de archivos no está disponible.",
+    "retry": "Reintentar",
+    "viewer.text": "Texto sin formato",
+    "wrap.aria": "Ajuste de línea",
+    "wrap.disable": "Desactivar el ajuste de línea",
+    "wrap.enable": "Activar el ajuste de línea"
+  }
+}

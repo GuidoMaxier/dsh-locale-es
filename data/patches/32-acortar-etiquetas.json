@@ -1,0 +1,44 @@
+{
+  "settings.models": {
+    "resetModels": "Restaurar por defecto",
+    "modelsInherited": "Usando los defaults del adaptador",
+    "modelsCustomized": "Catálogo de modelos propio"
+  },
+  "settings.plugins": {
+    "reset": "Restablecer por defecto",
+    "subagentModelSelectionOff": "Los subagentes usan los defaults configurados o heredan el modelo del agente principal. Las elecciones guardadas se conservan.",
+    "subagentModelSelectionChoose": "Los agentes pueden elegir proveedor, modelo y esfuerzo de reasoning para cada subagente entre los modelos autorizados. Solo aplica a sesiones nuevas.",
+    "agentLoopMaxParallelHint": "Máximo de llamadas seguras en paralelo dentro de un paso."
+  },
+  "settings.agentPreset": {
+    "inUse": "Por defecto en tareas nuevas",
+    "presetStandardDescription": "Agente de programación completo con edición de archivos, shell, búsqueda de archivos y web, skills, planificación, objetivos, subagentes y workflows.",
+    "presetPtcDescription": "Agente de programación completo sin la tool de workflows; las demás tools se exponen por el SDK del modo PTC para que el modelo combine pasos en un programa TypeScript.",
+    "presetCordisDescription": "Pensado para crear presets de agente propios, con todas las capacidades del modo Estándar más inspección en runtime, experimentos con plugins y guía para redactar presets.",
+    "presetMinimalDescription": "Agente de programación de una sola tool con un shell persistente.",
+    "copyIntro": "El preset se copia completo en esta máquina. El identificador será el nombre de su carpeta y no se puede cambiar; lo demás se edita en los archivos del preset.",
+    "sectionIntro": "Un preset es la composición de plugins con la que corre el agente de una sesión: sus tools, su prompt y sus capacidades. Duplica uno existente, o deja que el agente redacte uno por ti en el modo Creador.",
+    "duplicateUnavailable": "Esta instalación no tiene una carpeta de presets escribible",
+    "deleteDescription": "Se elimina la carpeta del preset. Las sesiones que ya corren con él siguen funcionando; las nuevas no pueden seleccionarlo.",
+    "showPickerDescription": "Con esto activado, las tareas nuevas pueden elegir los modos Estándar, PTC, Creador, Mínimo y propios. Desactivado, todas usan el modo por defecto (Estándar salvo configuración). Solo afecta a tareas nuevas.",
+    "displayNamePlaceholder": "Se muestra en el selector; por defecto usa el identificador",
+    "enablePickerToCreate": "Activa la selección de modo de agente para usar el modo Creador",
+    "enablePickerToSetDefault": "Activa la selección de modo de agente para elegir uno por defecto"
+  },
+  "chat": {
+    "message.retry.active": "Reintentando la petición",
+    "message.retry.cancelled": "Reintento cancelado",
+    "message.retry.started": "Se reintentó la petición",
+    "message.retry.scheduled": "Esperando para reintentar la petición",
+    "message.systemPromptUpdate": "Actualización del prompt"
+  },
+  "conversation": {
+    "settings.enter.title": "Envío mientras el agente trabaja"
+  },
+  "trajectory": {
+    "details.resize": "Redimensionar detalles"
+  },
+  "subagent": {
+    "readonly.oneShot.body": "Las tareas de un solo uso no aceptan seguimiento; aquí está el registro completo de la ejecución."
+  }
+}

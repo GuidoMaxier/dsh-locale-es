@@ -1,0 +1,32 @@
+{
+  "subagent": {
+    "activity.inactive": "no se está ejecutando",
+    "activity.running": "en ejecución",
+    "branch.collapse": "Contraer los descendientes de {label}",
+    "branch.expand": "Expandir los descendientes de {label}",
+    "count.running.one": "{count} subagente en ejecución",
+    "count.running.other": "{count} subagentes en ejecución",
+    "count.total.one": "{count} subagente",
+    "count.total.other": "{count} subagentes",
+    "diagnostic.corrupt": "registro de sesión dañado",
+    "diagnostic.unavailable": "registro de sesión no disponible temporalmente",
+    "diagnostic.unsupported": "versión de registro de subagente no compatible",
+    "duration.exactTitle": "Duración activa total: {duration}",
+    "duration.months": "~{months}mes",
+    "duration.monthsDays": "~{months}mes {days}d",
+    "duration.years": "~{years}a",
+    "duration.yearsMonths": "~{years}a {months}mes",
+    "load.error": "No se pudieron cargar los subagentes",
+    "loading.aria": "Cargando los subagentes",
+    "loading.label": "Cargando los subagentes…",
+    "mode.continuable": "continuable",
+    "mode.oneShot": "de un solo uso",
+    "readonly.body": "La sesión principal está desconectada; vuelve a abrirla para seguir enviando mensajes.",
+    "readonly.oneShot.body": "Las tareas de un solo uso no aceptan mensajes de seguimiento; aquí puedes revisar el registro completo de la ejecución.",
+    "readonly.oneShot.title": "Registro de subagente de un solo uso",
+    "readonly.title": "Este subagente es de solo lectura por ahora",
+    "retry": "Reintentar",
+    "switcher.aria": "Cambiar de subagente: {title}",
+    "tree.aria": "Sesiones de subagentes"
+  }
+}

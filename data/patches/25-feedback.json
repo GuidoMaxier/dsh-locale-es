@@ -1,0 +1,24 @@
+{
+  "feedback": {
+    "action.dislike": "Respuesta mala",
+    "action.dislikeActive": "Quitar la valoración",
+    "action.like": "Respuesta buena",
+    "action.likeActive": "Quitar la valoración",
+    "category.instruction-following": "Comprensión y seguimiento de instrucciones",
+    "category.other": "Otro",
+    "category.product-interaction": "Funciones del producto e interacción",
+    "category.resource-cost": "Uso de recursos y costo",
+    "category.security-privacy-permission": "Seguridad, privacidad y permisos",
+    "category.service-stability": "Estabilidad y velocidad",
+    "category.task-result": "Resultado de la tarea",
+    "dialog.categories": "Categoría de los comentarios",
+    "dialog.detail": "Detalles de los comentarios",
+    "dialog.hint": "Agrega detalles para ayudarnos a mejorar. Tu envío incluirá el registro de la conversación actual.",
+    "dialog.title": "Enviar comentarios",
+    "error.conflict": "Estos comentarios cambiaron en otro lugar; se muestra el estado más reciente",
+    "error.generic": "No se pudieron guardar los comentarios",
+    "error.load": "No se pudieron cargar los comentarios",
+    "error.noteTooLarge": "La descripción es demasiado larga; acórtala y envía de nuevo",
+    "toast.recorded": "Gracias por tus comentarios"
+  }
+}

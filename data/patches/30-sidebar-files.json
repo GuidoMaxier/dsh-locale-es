@@ -1,0 +1,17 @@
+{
+  "sidebarFiles": {
+    "empty": "Directorio vacío",
+    "entry.other": "No es un archivo ni un directorio, así que no se puede abrir.",
+    "error.notDirectory": "Eso no es un directorio.",
+    "error.notFound": "Ese directorio ya no existe. Puede que se haya movido o eliminado.",
+    "error.outsideWorkspace": "Ese directorio está fuera del espacio de trabajo, así que la barra lateral no lo leerá.",
+    "error.unavailable": "Falló la lectura: {message}",
+    "guide.description": "Explora los archivos del espacio de trabajo de esta sesión",
+    "guide.title": "Archivos del espacio de trabajo",
+    "loading": "Leyendo…",
+    "noWorkspace": "Esta sesión no tiene directorio de espacio de trabajo.",
+    "reload": "Recargar",
+    "truncated": "Hay demasiadas entradas; solo se muestran algunas.",
+    "type.label": "Archivos"
+  }
+}
