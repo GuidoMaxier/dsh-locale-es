@@ -46,15 +46,17 @@ Restart DSH, then open **Settings → General → Language** and pick **Español
 `pnpm <args>` inside the profile directory (`apps/cli/src/plugin.ts`). pnpm is already
 what manages profile plugins — you only need it on your PATH.
 
-**For DSH itself**, pnpm works and is often the better option:
+**For installing DSH itself, use npm:**
 
 ```sh
-pnpm add -g @deepseek-ai/dsh@0.1.5-rc.2
+npm install -g @deepseek-ai/dsh@0.1.5-rc.2
 ```
 
-npm can hang for minutes while resolving this monorepo's peer dependencies; pnpm
-resolves them faster. If npm stalls, switching to pnpm is the community's first
-recommendation.
+A *global* install of DSH with pnpm fails at startup with `ERR_MODULE_NOT_FOUND`. DSH
+imports packages it does not declare as dependencies, and pnpm only exposes declared
+dependencies to each package — so the modules are on disk but unreachable. npm's flat
+tree resolves them. Verified on Windows / Node 24 with pnpm 11.7.0, the version this
+repository pins.
 
 ## Scope
 

@@ -42,14 +42,15 @@ dsh plugin --profile web add github:GuidoMaxier/dsh-locale-es
 执行 `pnpm <args>`（`apps/cli/src/plugin.ts`）。profile 插件一直由 pnpm 管理 —— 你只需
 保证 pnpm 在 PATH 上。
 
-**对 DSH 本体**，pnpm 可用，而且往往是更好的选择：
+**安装 DSH 本体请用 npm：**
 
 ```sh
-pnpm add -g @deepseek-ai/dsh@0.1.5-rc.2
+npm install -g @deepseek-ai/dsh@0.1.5-rc.2
 ```
 
-npm 在解析这个 monorepo 的 peer dependencies 时可能卡住好几分钟；pnpm 解析更快。
-如果 npm 卡住，改用 pnpm 是社区的首选建议。
+用 pnpm *全局*安装 DSH 会在启动时报 `ERR_MODULE_NOT_FOUND`：DSH 会导入未声明为依赖的包，
+而 pnpm 只向每个包暴露它声明的依赖 —— 模块在磁盘上却无法访问。npm 的扁平树可以解析。
+已在 Windows / Node 24 + pnpm 11.7.0（本仓库锁定的版本）上复现。
 
 ## 覆盖范围
 
