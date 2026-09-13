@@ -8,6 +8,26 @@
 它不修改 `node_modules`，也不改动 DeepSeek Harness 源码。它通过官方本地化注册表
 （`@deepseek-ai/dsh-client-locale`）注册，未覆盖的键会自动回退到英文。
 
+## 已验证的版本
+
+| 组件 | 版本 |
+|---|---|
+| DeepSeek Harness（`@deepseek-ai/*`） | **0.1.5-rc.2** |
+| Node.js | **≥ 22**（在 24 上测试） |
+
+> DSH 处于 *developer preview* 阶段，会有破坏性变更。本包只使用 locale 注册表的公开
+> API（`ctx.locale.addLanguage` / `ctx.locale.register`），因此 DSH 升级不需要改动代码，
+> 只需补充新的键（见[开发](#开发)）。
+
+### 全局安装 DSH
+
+```sh
+npm install -g @deepseek-ai/dsh@0.1.5-rc.2
+```
+
+**不要用 `@latest`**：npm 注册表上该 tag 指向 `0.1.5-rc.1`，比本包测试所用的版本更旧。
+`dsh --version` 与 `@deepseek-ai/*` 包版本不一致是正常的 —— CLI 与包分别发布。
+
 ## 安装
 
 ```sh

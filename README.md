@@ -10,6 +10,29 @@ No modifica `node_modules` ni el código de DeepSeek Harness. Se registra a trav
 del sistema oficial de localización (`@deepseek-ai/dsh-client-locale`), y las
 claves sin traducir caen al inglés automáticamente.
 
+## Versiones verificadas
+
+| Componente | Versión |
+|---|---|
+| DeepSeek Harness (`@deepseek-ai/*`) | **0.1.5-rc.2** |
+| Node.js | **≥ 22** (probado en 24) |
+
+> DSH está en *developer preview* y tiene cambios que rompen compatibilidad. Este pack
+> solo usa el API público del registro de locale (`ctx.locale.addLanguage` /
+> `ctx.locale.register`), así que las actualizaciones de DSH no exigen cambios de
+> código: solo agregar las claves nuevas (ver [Desarrollo](#desarrollo)).
+
+### Si instalás DSH globalmente
+
+```sh
+npm install -g @deepseek-ai/dsh@0.1.5-rc.2
+```
+
+**No uses `@latest`**: en el registro de npm ese tag apunta a `0.1.5-rc.1`, anterior a
+la versión contra la que se probó este pack. Es normal que `dsh --version` difiera de
+la versión de los paquetes `@deepseek-ai/*` — el CLI y los paquetes se publican por
+separado.
+
 ## Instalación
 
 ```sh
