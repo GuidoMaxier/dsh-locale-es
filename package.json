@@ -4,34 +4,54 @@
   "description": "Spanish (es) language pack for the DeepSeek Harness Web UI — a community DSH client plugin adding Español to Settings → General → Language.",
   "license": "MIT",
   "type": "module",
+  "main": "index.js",
   "exports": {
-    ".": "./index.js",
-    "./client": "./lib/client.js",
+    ".": {
+      "default": "./index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./cordis.patch.yml": "./cordis.patch.yml",
     "./package.json": "./package.json"
   },
   "files": [
     "index.js",
-    "lib",
+    "lib/client.js",
     "cordis.patch.yml",
-    "README.md"
+    "data/es-dictionaries.json",
+    "data/terminology.json",
+    "README.md",
+    "README.en.md",
+    "README.zh.md",
+    "LICENSE"
   ],
+  "engines": {
+    "node": ">=22"
+  },
   "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
     "client": {
+      "platform": "web",
+      "immediately": true,
       "inject": [
         "@deepseek-ai/dsh-client-locale"
-      ],
-      "platform": "web",
-      "immediately": true
+      ]
     }
   },
   "keywords": [
     "deepseek-harness",
     "dsh",
     "dsh-plugin",
+    "cordis",
     "i18n",
+    "locale",
     "localization",
     "spanish",
-    "espanol"
+    "espanol",
+    "translation"
   ],
   "repository": {
     "type": "git",
