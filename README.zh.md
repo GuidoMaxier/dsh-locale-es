@@ -36,6 +36,21 @@ dsh plugin --profile web add github:GuidoMaxier/dsh-locale-es
 
 重启 DSH，然后在**设置 → 通用 → 语言**中选择 **Español**。
 
+## 可以用 pnpm 代替 npm 吗？
+
+**对本包来说，没有可选项。** `dsh plugin` *本身*就是 pnpm 的转发器：它在 profile 目录里
+执行 `pnpm <args>`（`apps/cli/src/plugin.ts`）。profile 插件一直由 pnpm 管理 —— 你只需
+保证 pnpm 在 PATH 上。
+
+**对 DSH 本体**，pnpm 可用，而且往往是更好的选择：
+
+```sh
+pnpm add -g @deepseek-ai/dsh@0.1.5-rc.2
+```
+
+npm 在解析这个 monorepo 的 peer dependencies 时可能卡住好几分钟；pnpm 解析更快。
+如果 npm 卡住，改用 pnpm 是社区的首选建议。
+
 ## 覆盖范围
 
 - **42 个 namespace · 1305 个键** —— 已翻译 1174 个。

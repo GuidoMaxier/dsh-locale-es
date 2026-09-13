@@ -40,6 +40,22 @@ dsh plugin --profile web add github:GuidoMaxier/dsh-locale-es
 
 Restart DSH, then open **Settings → General → Language** and pick **Español**.
 
+## Can I use pnpm instead of npm?
+
+**For the pack, there is nothing to choose.** `dsh plugin` *is* a pnpm forwarder: it runs
+`pnpm <args>` inside the profile directory (`apps/cli/src/plugin.ts`). pnpm is already
+what manages profile plugins — you only need it on your PATH.
+
+**For DSH itself**, pnpm works and is often the better option:
+
+```sh
+pnpm add -g @deepseek-ai/dsh@0.1.5-rc.2
+```
+
+npm can hang for minutes while resolving this monorepo's peer dependencies; pnpm
+resolves them faster. If npm stalls, switching to pnpm is the community's first
+recommendation.
+
 ## Scope
 
 - **42 namespaces · 1305 keys** — 1174 translated.
