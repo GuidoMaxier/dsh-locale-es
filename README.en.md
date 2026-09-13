@@ -58,6 +58,41 @@ dependencies to each package — so the modules are on disk but unreachable. npm
 tree resolves them. Verified on Windows / Node 24 with pnpm 11.7.0, the version this
 repository pins.
 
+## Uninstall
+
+```sh
+dsh plugin --profile web remove dsh-locale-es
+```
+
+Restart DSH and the UI returns to the previous language. Your stored preference
+(`locale.preference` in `settings.yaml`) is kept, so reinstalling the pack re-activates
+Spanish by itself; delete it if you want the choice to fall back to the browser again.
+
+## Selecting the language
+
+1. Open **Settings**.
+2. Go to **General**.
+3. In the **Language** row, pick **Español**.
+
+The choice is stored in the DSH settings document and survives restarts of both the
+server and the browser. If your browser is already in Spanish, DSH detects it and
+activates it without you touching anything.
+
+## Screenshots
+
+![The DSH interface in Spanish](docs/screenshots/01-idioma.png)
+
+See [`docs/screenshots/`](docs/screenshots/) for the rest.
+
+## Reporting a translation bug
+
+Open an issue: <https://github.com/GuidoMaxier/dsh-locale-es/issues>
+
+Include the namespace and key if you know it (for example
+`workspace.rename.session.title`), the text you see and your suggestion, a screenshot,
+and your DSH version (`dsh --version`). Strings are edited in
+`data/es-dictionaries.json`; see [Development](#development).
+
 ## Scope
 
 - **42 namespaces · 1305 keys** — 1174 translated.

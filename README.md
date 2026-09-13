@@ -59,6 +59,42 @@ paquete sus dependencias declaradas — así que los módulos están en disco pe
 inaccesibles. El árbol plano de npm los resuelve. Comprobado en Windows / Node 24 con
 pnpm 11.7.0, la versión que fija este repositorio.
 
+## Desinstalar
+
+```sh
+dsh plugin --profile web remove dsh-locale-es
+```
+
+Reiniciá DSH y la interfaz vuelve al idioma anterior. Tu preferencia guardada
+(`locale.preference` en `settings.yaml`) se conserva, así que si volvés a instalar el
+pack el español se activa solo; borrala si querés que la elección vuelva a depender del
+navegador.
+
+## Cómo elegir el idioma
+
+1. Abrí **Ajustes**.
+2. Entrá en **General**.
+3. En la fila **Idioma**, elegí **Español**.
+
+La elección se guarda en el documento de ajustes de DSH y sobrevive reinicios del
+servidor y del navegador. Si tu navegador ya está en español, DSH lo detecta y lo activa
+sin que toques nada.
+
+## Capturas
+
+![La interfaz de DSH en español](docs/screenshots/01-idioma.png)
+
+Ver [`docs/screenshots/`](docs/screenshots/) para el resto.
+
+## Reportar un error de traducción
+
+Abrí un issue: <https://github.com/GuidoMaxier/dsh-locale-es/issues>
+
+Incluí el namespace y la clave si los conocés (por ejemplo
+`workspace.rename.session.title`), el texto que ves y tu propuesta, una captura, y tu
+versión de DSH (`dsh --version`). Los textos se editan en `data/es-dictionaries.json`;
+ver [Desarrollo](#desarrollo).
+
 ## Cobertura
 
 - **42 namespaces · 1305 claves** — 1174 traducidas.

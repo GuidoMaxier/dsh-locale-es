@@ -52,6 +52,39 @@ npm install -g @deepseek-ai/dsh@0.1.5-rc.2
 而 pnpm 只向每个包暴露它声明的依赖 —— 模块在磁盘上却无法访问。npm 的扁平树可以解析。
 已在 Windows / Node 24 + pnpm 11.7.0（本仓库锁定的版本）上复现。
 
+## 卸载
+
+```sh
+dsh plugin --profile web remove dsh-locale-es
+```
+
+重启 DSH 后界面会回到之前的语言。你保存的偏好（`settings.yaml` 中的
+`locale.preference`）会保留，因此重新安装本包时会自动恢复西班牙语；如果希望语言
+重新交给浏览器决定，删掉它即可。
+
+## 如何选择语言
+
+1. 打开**设置**。
+2. 进入**通用**。
+3. 在**语言**一行选择 **Español**。
+
+该选择保存在 DSH 的设置文档里，重启服务端与浏览器后依然有效。如果你的浏览器本身
+就是西班牙语，DSH 会自动检测并启用，无需任何操作。
+
+## 截图
+
+![西班牙语界面下的 DSH](docs/screenshots/01-idioma.png)
+
+其余见 [`docs/screenshots/`](docs/screenshots/)。
+
+## 报告翻译问题
+
+请开 issue：<https://github.com/GuidoMaxier/dsh-locale-es/issues>
+
+如果知道，请附上 namespace 与键名（例如 `workspace.rename.session.title`）、你看到的
+文本与你的建议、一张截图，以及你的 DSH 版本（`dsh --version`）。文本在
+`data/es-dictionaries.json` 中修改；见[开发](#开发)。
+
 ## 覆盖范围
 
 - **42 个 namespace · 1305 个键** —— 已翻译 1174 个。
