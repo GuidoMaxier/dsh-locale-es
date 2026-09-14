@@ -1,6 +1,6 @@
 {
   "name": "dsh-locale-es",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Spanish (es) language pack for the DeepSeek Harness Web UI — a community DSH client plugin adding Español to Settings → General → Language.",
   "license": "MIT",
   "type": "module",
@@ -31,7 +31,7 @@
     "node": ">=22"
   },
   "peerDependencies": {
-    "cordis": ">=4.0.0 <5.0.0"
+    "@deepseek-ai/cordis": "^4.0.1"
   },
   "dsh": {
     "bundle": {
