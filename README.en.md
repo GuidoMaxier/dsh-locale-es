@@ -34,6 +34,12 @@ separately.
 
 ## Install
 
+> [!WARNING]
+> **Do not install this package with `npm install`.** It is not a standalone library: it is
+> a DSH plugin. `npm i dsh-locale-es` leaves it in whatever directory you are in, pulls in
+> extra peer dependencies, and DSH never loads it — you would still see the UI in English.
+> The correct install is the one below, and it is a single line.
+
 ```sh
 dsh plugin --profile web add dsh-locale-es
 ```

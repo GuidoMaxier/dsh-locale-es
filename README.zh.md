@@ -30,6 +30,11 @@ npm install -g @deepseek-ai/dsh@0.1.5-rc.2
 
 ## 安装
 
+> [!WARNING]
+> **不要用 `npm install` 安装本包。** 它不是独立库，而是 DSH 插件。`npm i dsh-locale-es`
+> 会把它装到你当前所在的目录，多拉一批 peer dependencies，而 DSH 根本不会加载它 —— 界面
+> 仍然是英文。正确的安装方式是下面这一行。
+
 ```sh
 dsh plugin --profile web add dsh-locale-es
 ```

@@ -35,6 +35,12 @@ separado.
 
 ## Instalación
 
+> [!WARNING]
+> **No instales este paquete con `npm install`.** No es una librería autónoma: es un plugin
+> de DSH. `npm i dsh-locale-es` lo deja en el directorio donde estés parado, baja peer
+> dependencies de más y DSH nunca lo carga, así que seguirías viendo la interfaz en inglés.
+> La instalación correcta es la de abajo, y es una sola línea.
+
 ```sh
 dsh plugin --profile web add dsh-locale-es
 ```
