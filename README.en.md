@@ -35,16 +35,23 @@ separately.
 ## Install
 
 ```sh
-dsh plugin --profile web add github:GuidoMaxier/dsh-locale-es
+dsh plugin --profile web add dsh-locale-es
+```
+
+The package is published on npm, so that path installs the latest published version. To pin a
+specific commit (for example, to test an unpublished change):
+
+```sh
+dsh plugin --profile web add github:GuidoMaxier/dsh-locale-es#<commit>
 ```
 
 Restart DSH, then open **Settings → General → Language** and pick **Español**.
 
 ## Updating the pack
 
-The profile pins this dependency to a commit — pnpm records the resolution in its
-`pnpm-lock.yaml` — so **a new push to this repository does not arrive on its own**. To
-pull it:
+The profile pins the installation in its `pnpm-lock.yaml`: a new version **does not arrive
+on its own**. If you installed from npm the lock pins the published version; if you
+installed from GitHub it pins a commit. Either way:
 
 ```sh
 dsh plugin --profile web update

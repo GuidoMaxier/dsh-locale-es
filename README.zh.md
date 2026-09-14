@@ -31,15 +31,21 @@ npm install -g @deepseek-ai/dsh@0.1.5-rc.2
 ## 安装
 
 ```sh
-dsh plugin --profile web add github:GuidoMaxier/dsh-locale-es
+dsh plugin --profile web add dsh-locale-es
+```
+
+包已发布到 npm，该命令安装最新发布版本。要固定到某个 commit（例如测试尚未发布的改动）：
+
+```sh
+dsh plugin --profile web add github:GuidoMaxier/dsh-locale-es#<commit>
 ```
 
 重启 DSH，然后在**设置 → 通用 → 语言**中选择 **Español**。
 
 ## 更新语言包
 
-profile 会把这个依赖锁定到某个 commit（pnpm 将解析结果写进 `pnpm-lock.yaml`），因此
-**向本仓库推送新提交不会自动生效**。要拉取：
+profile 会把安装锁定在 `pnpm-lock.yaml` 里：新版本**不会自动生效**。从 npm 安装时锁定的是
+已发布的版本，从 GitHub 安装时锁定的是 commit。两种情况都一样：
 
 ```sh
 dsh plugin --profile web update

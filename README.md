@@ -36,15 +36,23 @@ separado.
 ## Instalación
 
 ```sh
-dsh plugin --profile web add github:GuidoMaxier/dsh-locale-es
+dsh plugin --profile web add dsh-locale-es
+```
+
+El paquete está publicado en npm, así que esa ruta instala la última versión publicada. Para
+fijar un commit concreto (por ejemplo, para probar un cambio sin publicar):
+
+```sh
+dsh plugin --profile web add github:GuidoMaxier/dsh-locale-es#<commit>
 ```
 
 Reiniciá DSH y elegí **Español** en *Ajustes → General → Idioma*.
 
 ## Actualizar el pack
 
-El profile fija esta dependencia a un commit — pnpm escribe la resolución en su
-`pnpm-lock.yaml` — así que **un push nuevo al repositorio no llega solo**. Para traerlo:
+El profile fija la instalación en su `pnpm-lock.yaml`: una versión nueva **no llega sola**.
+Si instalaste desde npm, el lock fija la versión publicada; si instalaste desde GitHub, fija
+un commit. En los dos casos:
 
 ```sh
 dsh plugin --profile web update
