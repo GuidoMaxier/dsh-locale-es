@@ -41,6 +41,31 @@ dsh plugin --profile web add github:GuidoMaxier/dsh-locale-es
 
 Reiniciá DSH y elegí **Español** en *Ajustes → General → Idioma*.
 
+## Actualizar el pack
+
+El profile fija esta dependencia a un commit — pnpm escribe la resolución en su
+`pnpm-lock.yaml` — así que **un push nuevo al repositorio no llega solo**. Para traerlo:
+
+```sh
+dsh plugin --profile web update
+```
+
+Reiniciá DSH después. `dsh plugin` es un pasamanos de pnpm
+([`apps/cli/src/plugin.ts`](https://github.com/deepseek-ai/deepseek-harness/blob/master/apps/cli/src/plugin.ts)):
+`update` vuelve a resolver la dependencia y después reconcilia `dsh.profile.bundles`
+contra lo instalado, así que **no hace falta desinstalar y volver a instalar**.
+
+Actualizar **DSH** no requiere nada de esto. El profile no instala sus propios
+paquetes del harness: los enlaza por symlink a la instalación global
+(`~/.dsh/profiles/node_modules/@deepseek-ai/*` → la instalación de npm), así que al
+subir de versión DSH el pack sigue cargando sin tocar nada.
+
+> Por qué no hay `peerDependencies` sobre `@deepseek-ai/dsh-client-locale`: node-semver
+> solo acepta un prerelease si el rango nombra ese mismo `major.minor.patch`, así que
+> `>=0.1.0-rc.6` **no** satisface a `0.1.5-rc.2`. La versión verificada está en la tabla
+> de arriba; el pack solo usa el API público del registro de locale
+> (`ctx.locale.addLanguage` / `ctx.locale.register`).
+
 ## ¿Se puede usar pnpm en vez de npm?
 
 **Para el pack no hay nada que elegir.** `dsh plugin` *es* un pasamanos de pnpm: ejecuta

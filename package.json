@@ -19,6 +19,7 @@
     "index.js",
     "lib/client.js",
     "cordis.patch.yml",
+    "registry-entry.yml",
     "data/es-dictionaries.json",
     "data/terminology.json",
     "README.md",
@@ -28,6 +29,9 @@
   ],
   "engines": {
     "node": ">=22"
+  },
+  "peerDependencies": {
+    "cordis": ">=4.0.0 <5.0.0"
   },
   "dsh": {
     "bundle": {
@@ -39,6 +43,13 @@
       "inject": [
         "@deepseek-ai/dsh-client-locale"
       ]
+    },
+    "market": {
+      "category": "ui",
+      "description": {
+        "en": "Adds Spanish (es) to the DeepSeek Harness Web UI. Every official locale namespace translated string by string, with automatic fallback to English for new strings from upstream updates and third-party plugins.",
+        "zh": "为 DeepSeek Harness Web UI 新增西班牙语（es）。官方界面命名空间逐条精译，上游更新与第三方插件新增的字串自动回退英文。"
+      }
     }
   },
   "keywords": [

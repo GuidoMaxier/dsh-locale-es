@@ -1,0 +1,45 @@
+name: publish
+
+# Publica el paquete en npm cuando se empuja un tag `vX.Y.Z`.
+#
+# Antes del primer release:
+#   1. Crear el token en npm (Access Tokens → Automation) y guardarlo en el
+#      repositorio como secreto `NPM_TOKEN`.
+#   2. Empujar el tag: `git tag v0.1.1 && git push origin v0.1.1`.
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+  id-token: write # provenance: vincula el paquete con este repositorio y commit
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+
+      - name: Check the tag matches package.json
+        run: |
+          node -e "const v=require('./package.json').version; const t=process.env.GITHUB_REF_NAME.replace(/^v/,''); if (v!==t) { console.error('tag '+t+' != package.json version '+v); process.exit(1) } console.log('version '+v)"
+
+      # El bundle commiteado tiene que ser exactamente el que produce el
+      # diccionario: si alguien editó data/es-dictionaries.json y olvidó
+      # regenerar lib/client.js, el release falla acá en lugar de publicar un
+      # pack que no refleja lo traducido.
+      - name: Verify lib/client.js matches the dictionary
+        run: |
+          npx --yes tsx tools/build-client.ts data/es-dictionaries.json "$RUNNER_TEMP/client.js"
+          diff -u lib/client.js "$RUNNER_TEMP/client.js"
+
+      - name: Publish to npm
+        run: npm publish --provenance
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

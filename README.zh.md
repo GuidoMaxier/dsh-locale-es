@@ -36,6 +36,27 @@ dsh plugin --profile web add github:GuidoMaxier/dsh-locale-es
 
 重启 DSH，然后在**设置 → 通用 → 语言**中选择 **Español**。
 
+## 更新语言包
+
+profile 会把这个依赖锁定到某个 commit（pnpm 将解析结果写进 `pnpm-lock.yaml`），因此
+**向本仓库推送新提交不会自动生效**。要拉取：
+
+```sh
+dsh plugin --profile web update
+```
+
+之后重启 DSH。`dsh plugin` 是 pnpm 的转发器：`update` 会重新解析依赖，再按实际安装
+状态重新对齐 `dsh.profile.bundles`，因此**不需要先卸载再安装**。
+
+更新 **DSH** 本身不需要任何操作。profile 不会自装 harness 包，而是用符号链接指向全局
+安装（`~/.dsh/profiles/node_modules/@deepseek-ai/*` → npm 安装目录），所以升级 DSH
+版本后本语言包照常加载。
+
+> 为什么没有声明 `@deepseek-ai/dsh-client-locale` 的 `peerDependencies`：node-semver
+> 只有当版本区间指明了相同的 `major.minor.patch` 时才接受 prerelease，所以
+> `>=0.1.0-rc.6` **不满足** `0.1.5-rc.2`。已验证的版本见上表；本语言包只使用 locale
+> 注册表的公开 API（`ctx.locale.addLanguage` / `ctx.locale.register`）。
+
 ## 可以用 pnpm 代替 npm 吗？
 
 **对本包来说，没有可选项。** `dsh plugin` *本身*就是 pnpm 的转发器：它在 profile 目录里
