@@ -2,10 +2,19 @@ name: publish
 
 # Publica el paquete en npm cuando se empuja un tag `vX.Y.Z`.
 #
-# Antes del primer release:
-#   1. Crear el token en npm (Access Tokens → Automation) y guardarlo en el
-#      repositorio como secreto `NPM_TOKEN`.
-#   2. Empujar el tag: `git tag v0.1.1 && git push origin v0.1.1`.
+# Autenticación: OIDC (trusted publishing), sin tokens guardados. GitHub le da a
+# este workflow una identidad efímera y npm la canjea por un credencial de
+# publicación, así que no hay secreto que rotar ni que robar. Los tokens classic
+# de npm —incluido el "Automation" que usaba este archivo— se revocaron en
+# diciembre de 2025 y ya no son una opción.
+#
+# Antes del primer release, en npmjs.com:
+#   Package → Settings → Trusted publishing → GitHub Actions, con
+#     usuario:     GuidoMaxier
+#     repositorio: dsh-locale-es
+#     workflow:    publish.yml   (coincidencia exacta, con la extensión)
+#     environment: (vacío)
+#   Y después empujar el tag: `git tag v0.1.2 && git push origin v0.1.2`.
 on:
   push:
     tags:
@@ -13,7 +22,7 @@ on:
 
 permissions:
   contents: read
-  id-token: write # provenance: vincula el paquete con este repositorio y commit
+  id-token: write # OIDC: npm canjea este token por permiso de publicación
 
 jobs:
   publish:
@@ -21,10 +30,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Sin `registry-url`: setup-node escribiría un _authToken vacío en .npmrc y
+      # ese token vacío bloquea el canje OIDC (falla con ENEEDAUTH).
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-          registry-url: https://registry.npmjs.org
+
+      # El OIDC necesita npm >= 11.5.1.
+      - name: Use a recent npm
+        run: npm install -g npm@latest
 
       - name: Check the tag matches package.json
         run: |
@@ -39,7 +53,6 @@ jobs:
           npx --yes tsx tools/build-client.ts data/es-dictionaries.json "$RUNNER_TEMP/client.js"
           diff -u lib/client.js "$RUNNER_TEMP/client.js"
 
+      # Sin NODE_AUTH_TOKEN: la autenticación la resuelve el OIDC.
       - name: Publish to npm
-        run: npm publish --provenance
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish --provenance --access public
