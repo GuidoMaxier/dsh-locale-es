@@ -9,7 +9,7 @@
  *
  * Usage: tsx build-client.ts <dictionaries.json> <output-client-js>
  */
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -22,6 +22,24 @@ if (inputPath === undefined || outputPath === undefined) {
 const packRoot = dirname(dirname(fileURLToPath(import.meta.url)))
 const manifest = JSON.parse(readFileSync(join(packRoot, 'package.json'), 'utf8')) as { name: string }
 const dictionaries = JSON.parse(readFileSync(inputPath, 'utf8')) as Record<string, Record<string, string>>
+
+/**
+ * Claves que upstream quito pero una version anterior de DSH todavia lee. Se
+ * agregan despues de las vivas, que son las que ganan cuando coinciden.
+ */
+const legacyPath = join(packRoot, 'data/legacy-dictionaries.json')
+let legacyKeys = 0
+if (existsSync(legacyPath)) {
+  const legacy = JSON.parse(readFileSync(legacyPath, 'utf8')) as Record<string, Record<string, string>>
+  for (const [ns, entries] of Object.entries(legacy)) {
+    const target = dictionaries[ns] ??= {}
+    for (const [key, value] of Object.entries(entries)) {
+      if (target[key] !== undefined) continue
+      target[key] = value
+      legacyKeys += 1
+    }
+  }
+}
 const namespaces = Object.keys(dictionaries)
 
 const source = [
@@ -62,3 +80,4 @@ writeFileSync(outputPath, source)
 console.log('client bundle: ' + outputPath)
 console.log('id: ' + manifest.name)
 console.log('namespaces: ' + namespaces.length)
+console.log('legacy keys merged: ' + legacyKeys)

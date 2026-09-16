@@ -138,7 +138,9 @@ ver [Desarrollo](#desarrollo).
 
 ## Cobertura
 
-- **44 namespaces · 1349 claves** — 1214 traducidas.
+- **44 namespaces · 1349 claves** de la versión actual de DSH — 1214 traducidas.
+- **+26 claves legacy** en 5 namespaces que DSH ya no declara pero que 0.1.5 todavía
+  lee, así que un usuario con `@latest` tampoco ve inglés nuevo.
 - Cubre el shell y los ajustes (`settings`, `settings.models`, `settings.plugins`,
   `settings.agentPreset`, `settings.pluginInventory`, `permission.access`), chat
   y conversación (`chat`, `conversation`), `trajectory`, `workspace`, `subagent`,
@@ -158,6 +160,7 @@ Un **plugin de cliente** de DSH normal, en dos mitades:
 | `cordis.patch.yml` | Capa de perfil que monta el plugin como fila del loader. |
 | `data/es-dictionaries.json` | Fuente de verdad de la traducción. |
 | `data/en-dictionaries.json` | Generado: el corpus inglés extraído de un checkout de DSH. |
+| `data/legacy-dictionaries.json` | Claves que upstream quitó y una versión anterior de DSH todavía lee. |
 | `data/patches/*.json` | Lotes de traducción, aplicados en orden. |
 | `data/terminology.json` | Sustituciones de frase que mantienen las etiquetas cortas. |
 | `tools/*.ts` | Scripts de extracción, build, sincronización, control y progreso. |
@@ -192,7 +195,9 @@ Los scripts necesitan `tsx` de un checkout de DeepSeek Harness, así que corren 
 node --import tsx/esm tools/extract-dictionaries.ts <repo-root> data/en-dictionaries.json
 
 # Traer las claves nuevas sin pisar lo traducido (se siembran en inglés)
-node --import tsx/esm tools/sync-es.ts data/en-dictionaries.json data/es-dictionaries.json
+# Mueve a legacy las claves que upstream elimina en vez de descartarlas.
+node --import tsx/esm tools/sync-es.ts data/en-dictionaries.json data/es-dictionaries.json \
+  data/legacy-dictionaries.json
 
 # Aplicar un lote de traducción (reemplaza solo claves existentes)
 node --import tsx/esm tools/apply-patch.ts data/es-dictionaries.json data/patches/38-nuevo.json

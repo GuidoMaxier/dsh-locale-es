@@ -121,7 +121,9 @@ dsh plugin --profile web remove dsh-locale-es
 
 ## 覆盖范围
 
-- **44 个 namespace · 1349 个键** —— 已翻译 1214 个。
+- **44 个 namespace · 1349 个键**（对应当前 DSH）—— 已翻译 1214 个。
+- **另有 26 个 legacy 键**，属于 5 个 DSH 已不再声明、但 0.1.5 仍在读取的
+  namespace，因此用 `@latest` 的用户也不会看到新的英文。
 - 覆盖 shell 与设置（`settings`、`settings.models`、`settings.plugins`、
   `settings.agentPreset`、`settings.pluginInventory`、`permission.access`）、
   对话（`chat`、`conversation`）、`trajectory`、`workspace`、`subagent`、
@@ -141,6 +143,7 @@ dsh plugin --profile web remove dsh-locale-es
 | `cordis.patch.yml` | profile 层，把插件挂载为 loader 的一行。 |
 | `data/es-dictionaries.json` | 翻译的唯一真实来源。 |
 | `data/en-dictionaries.json` | 生成：从 DSH 检出中提取的英文语料。 |
+| `data/legacy-dictionaries.json` | 上游已删除、但旧版 DSH 仍在读取的键。 |
 | `data/patches/*.json` | 按顺序应用的翻译批次。 |
 | `data/terminology.json` | 保持标签简短的短语替换表。 |
 | `tools/*.ts` | 提取、构建、同步、检查与进度脚本。 |
@@ -174,7 +177,9 @@ window.__ModuleLoader__.load({
 node --import tsx/esm tools/extract-dictionaries.ts <repo-root> data/en-dictionaries.json
 
 # 把新键并入 es，不覆盖已有翻译（新键以英文播种）
-node --import tsx/esm tools/sync-es.ts data/en-dictionaries.json data/es-dictionaries.json
+# 把上游删除的键移入 legacy，而不是直接丢弃。
+node --import tsx/esm tools/sync-es.ts data/en-dictionaries.json data/es-dictionaries.json \
+  data/legacy-dictionaries.json
 
 # 应用一个翻译批次（只替换已存在的键）
 node --import tsx/esm tools/apply-patch.ts data/es-dictionaries.json data/patches/38-nuevo.json
