@@ -2,6 +2,8 @@
 
 [Español](README.md) | [English](README.en.md) | 中文
 
+[![dsh.fish](https://dsh.fish/a/dsh-locale-es/badge.svg)](https://dsh.fish/a/dsh-locale-es)
+
 面向 **DeepSeek Harness** Web UI 的**西班牙语（es）**语言包 —— 一个社区开发的 DSH
 客户端插件，在*设置 → 通用 → 语言*中新增 **Español**。
 
@@ -12,7 +14,7 @@
 
 | 组件 | 版本 |
 |---|---|
-| DeepSeek Harness（`@deepseek-ai/*`） | **0.1.5-rc.2** |
+| DeepSeek Harness（`@deepseek-ai/*`） | **0.1.6-alpha.1** |
 | Node.js | **≥ 22**（在 24 上测试） |
 
 > DSH 处于 *developer preview* 阶段，会有破坏性变更。本包只使用 locale 注册表的公开
@@ -22,11 +24,11 @@
 ### 全局安装 DSH
 
 ```sh
-npm install -g @deepseek-ai/dsh@0.1.5-rc.2
+npm install -g @deepseek-ai/dsh@0.1.6-alpha.1
 ```
 
-**不要用 `@latest`**：npm 注册表上该 tag 指向 `0.1.5-rc.1`，比本包测试所用的版本更旧。
-`dsh --version` 与 `@deepseek-ai/*` 包版本不一致是正常的 —— CLI 与包分别发布。
+**不要用 `@latest`**：npm 注册表上该 tag 指向 `0.1.5-rc.1`，比本包测试所用的版本更旧；
+`alpha` tag 指向 `0.1.6-alpha.1`。`dsh --version` 与 `@deepseek-ai/*` 包版本不一致是正常的 —— CLI 与包分别发布。
 
 ## 安装
 
@@ -65,7 +67,7 @@ dsh plugin --profile web update
 
 > 为什么没有声明 `@deepseek-ai/dsh-client-locale` 的 `peerDependencies`：node-semver
 > 只有当版本区间指明了相同的 `major.minor.patch` 时才接受 prerelease，所以
-> `>=0.1.0-rc.6` **不满足** `0.1.5-rc.2`。已验证的版本见上表；本语言包只使用 locale
+> `>=0.1.0-rc.6` **不满足** `0.1.6-alpha.1`。已验证的版本见上表；本语言包只使用 locale
 > 注册表的公开 API（`ctx.locale.addLanguage` / `ctx.locale.register`）。
 
 ## 可以用 pnpm 代替 npm 吗？
@@ -77,7 +79,7 @@ dsh plugin --profile web update
 **安装 DSH 本体请用 npm：**
 
 ```sh
-npm install -g @deepseek-ai/dsh@0.1.5-rc.2
+npm install -g @deepseek-ai/dsh@0.1.6-alpha.1
 ```
 
 用 pnpm *全局*安装 DSH 会在启动时报 `ERR_MODULE_NOT_FOUND`：DSH 会导入未声明为依赖的包，
@@ -119,9 +121,9 @@ dsh plugin --profile web remove dsh-locale-es
 
 ## 覆盖范围
 
-- **42 个 namespace · 1305 个键** —— 已翻译 1174 个。
+- **44 个 namespace · 1349 个键** —— 已翻译 1214 个。
 - 覆盖 shell 与设置（`settings`、`settings.models`、`settings.plugins`、
-  `settings.agentPreset`、`settings.pluginInventory`、`settings.permission`）、
+  `settings.agentPreset`、`settings.pluginInventory`、`permission.access`）、
   对话（`chat`、`conversation`）、`trajectory`、`workspace`、`subagent`、
   `workflowRun`、`cordis`、`deliverables`、`approval`、`plan`、`job`、`feedback`、
   `sidebar`、`common` 等。
@@ -192,6 +194,10 @@ node --import tsx/esm tools/report-progress.ts data/en-dictionaries.json data/es
 pnpm dsh web --patch <repo>/cordis.patch.yml --no-open      # 正确
 pnpm dsh web --no-open --patch <repo>/cordis.patch.yml      # error: unknown option
 ```
+
+如果 profile 里已经安装本包，overlay 会以 `duplicate loader entry id:
+dsh-locale-es` 失败。先移除（`dsh plugin --profile web remove dsh-locale-es`），
+验证完再装回去。
 
 ## 术语
 

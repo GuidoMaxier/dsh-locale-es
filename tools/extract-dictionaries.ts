@@ -31,6 +31,8 @@ const NAMESPACE_OVERRIDES: Record<string, string> = {
   'packages/client/ui-settings-models/src/client/locales.ts': 'settings.models',
   'packages/client/ui-settings-plugin-inventory/src/client/locales.ts': 'settings.pluginInventory',
   'packages/client/ui-settings-plugins/src/client/locales.ts': 'settings.plugins',
+  'packages/client/ui-settings-unarchive-sessions/src/client/locales.ts': 'settings.archivedSessions',
+  'packages/client/ui-sidebar-terminal/src/client/locales.ts': 'sidebarTerminal',
   'packages/client/ui-sidebar-documentpreview/src/client/code/locales.ts': 'sidebarCodePreview',
   'packages/client/ui-sidebar-documentpreview/src/client/html/locales.ts': 'documentHtml',
   'packages/client/ui-sidebar-documentpreview/src/client/image/locales.ts': 'sidebarImage',

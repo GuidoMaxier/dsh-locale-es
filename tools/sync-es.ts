@@ -42,6 +42,8 @@ for (const [ns, dictionary] of Object.entries(es)) {
       removed += 1
     }
   }
+  // Un namespace que se quedo sin claves solo registraria un diccionario vacio.
+  if (Object.keys(dictionary).length === 0) delete es[ns]
 }
 
 writeFileSync(esPath, JSON.stringify(es, null, 2) + String.fromCharCode(10))

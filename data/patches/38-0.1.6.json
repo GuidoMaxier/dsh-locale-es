@@ -1,0 +1,105 @@
+{
+  "conversation": {
+    "tool.autoReviewNotExecuted": "La herramienta no se ejecutó. Motivo: {reason}",
+    "tool.autoReviewReasonFallback": "La revisión automática no autorizó esta acción",
+    "tool.autoReviewRejected": "Rechazado por la revisión automática"
+  },
+  "permission.access": {
+    "confirm.acknowledge": "Entiendo los riesgos y quiero continuar",
+    "confirm.cancel": "Cancelar",
+    "confirm.description": "El acceso total permite que las sesiones nuevas reduzcan los pasos de confirmación y realicen más acciones directamente, incluidas operaciones sensibles, cambios en archivos o comandos externos. Úsalo solo cuando confíes en las tareas siguientes.",
+    "confirm.enable": "Activar el acceso total",
+    "confirm.title": "¿Activar el acceso total?",
+    "description": "Elige el modo de permisos por defecto para las sesiones nuevas",
+    "loading": "Cargando",
+    "preset.fullAccess": "Acceso total",
+    "preset.readOnly": "Solo lectura",
+    "preset.workspaceWrite": "Escritura en el espacio de trabajo",
+    "title": "Permisos",
+    "unavailable": "No disponible"
+  },
+  "settings.archivedSessions": {
+    "empty": "No hay sesiones archivadas.",
+    "emptySearch": "No hay sesiones coincidentes.",
+    "loading": "Leyendo sesiones…",
+    "nav": "Sesiones archivadas",
+    "search": "Buscar sesiones archivadas",
+    "time.days": "{n}d",
+    "time.hours": "{n}h",
+    "time.minutes": "{n}min",
+    "time.months": "{n}meses",
+    "time.now": "ahora",
+    "time.years": "{n}a",
+    "unarchive": "Desarchivar",
+    "unarchiveNamed": "Desarchivar {title}",
+    "unavailable": "Aquí no se puede restaurar ninguna sesión archivada.",
+    "ungrouped": "Sin grupo"
+  },
+  "settings.models": {
+    "deepSeekEndpointHint": "Usa un endpoint compatible con la conexión configurada."
+  },
+  "sidebarDocumentPreview": {
+    "unsupportedFile": "La vista previa todavía no está disponible para este tipo de archivo.",
+    "error.notText": "La vista previa todavía no está disponible para este tipo de archivo.",
+    "loading": "Leyendo…"
+  },
+  "sidebarImage": {
+    "loading": "Leyendo…"
+  },
+  "sidebarPdf": {
+    "loading": "Leyendo…"
+  },
+  "documentHtml": {
+    "loading": "Leyendo…"
+  },
+  "question": {
+    "action.skip": "Omitir"
+  },
+  "settings": {
+    "connection.restart": "Reconectando, reconectar ahora"
+  },
+  "workspace": {
+    "section.workspaces": "Espacios de trabajo"
+  },
+  "reference": {
+    "crumb.root": "Espacio de trabajo"
+  },
+  "sidebarTerminal": {
+    "attachmentEnded": "La conexión del terminal terminó. Reconecta para continuar.",
+    "cleanupFailed": "No se pudo cerrar el terminal «{title}»: {message}",
+    "closed": "Terminal cerrado.",
+    "connecting": "Conectando…",
+    "control": "Tomar el control",
+    "creating": "Iniciando…",
+    "description": "Ejecuta comandos en el espacio de trabajo de la sesión",
+    "disconnected": "Conexión interrumpida.",
+    "exited": "El proceso terminó ({code})",
+    "failed": "Error del terminal: {message}",
+    "inputFull": "El búfer de entrada está lleno. Reconecta e inténtalo de nuevo.",
+    "invalidOutput": "No se pudo recibir la pantalla del terminal. Reconecta para recuperarla.",
+    "loading": "Leyendo el entorno del terminal…",
+    "missingTerminal": "Este terminal ya no existe. Abre un terminal nuevo.",
+    "new": "Nuevo terminal",
+    "readonly": "Esta vista es de solo lectura.",
+    "reconnect": "Reconectar",
+    "recoveryFailed": "No se pudo recuperar el terminal: {message}",
+    "rename": "Nombre del terminal",
+    "retry": "Reintentar",
+    "retryRecovery": "Reintentar la recuperación del terminal",
+    "shell": "Elegir shell",
+    "shellEmpty": "No hay shells disponibles",
+    "shellLoading": "Leyendo shells…",
+    "terminalLimit": "Se alcanzó el límite de terminales. Cierra los que no uses e inténtalo de nuevo; los terminales terminados también cuentan.",
+    "title": "Terminal",
+    "unavailable": "No disponible"
+  },
+  "trajectory": {
+    "code.copyOutput": "Copiar salida",
+    "code.copySource": "Copiar código",
+    "code.originalJson": "JSON original",
+    "code.output": "Salida",
+    "code.running": "En ejecución…",
+    "code.source": "Código",
+    "record.wrapLines": "Ajustar líneas"
+  }
+}

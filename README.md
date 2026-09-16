@@ -2,6 +2,8 @@
 
 Español | [English](README.en.md) | [中文](README.zh.md)
 
+[![dsh.fish](https://dsh.fish/a/dsh-locale-es/badge.svg)](https://dsh.fish/a/dsh-locale-es)
+
 Paquete de idioma **español (es)** para la interfaz web de **DeepSeek Harness** —
 un plugin de cliente de la comunidad que agrega **Español** a
 *Ajustes → General → Idioma*.
@@ -14,7 +16,7 @@ claves sin traducir caen al inglés automáticamente.
 
 | Componente | Versión |
 |---|---|
-| DeepSeek Harness (`@deepseek-ai/*`) | **0.1.5-rc.2** |
+| DeepSeek Harness (`@deepseek-ai/*`) | **0.1.6-alpha.1** |
 | Node.js | **≥ 22** (probado en 24) |
 
 > DSH está en *developer preview* y tiene cambios que rompen compatibilidad. Este pack
@@ -25,13 +27,13 @@ claves sin traducir caen al inglés automáticamente.
 ### Si instalás DSH globalmente
 
 ```sh
-npm install -g @deepseek-ai/dsh@0.1.5-rc.2
+npm install -g @deepseek-ai/dsh@0.1.6-alpha.1
 ```
 
 **No uses `@latest`**: en el registro de npm ese tag apunta a `0.1.5-rc.1`, anterior a
-la versión contra la que se probó este pack. Es normal que `dsh --version` difiera de
-la versión de los paquetes `@deepseek-ai/*` — el CLI y los paquetes se publican por
-separado.
+la versión contra la que se probó este pack; el tag `alpha` apunta a `0.1.6-alpha.1`.
+Es normal que `dsh --version` difiera de la versión de los paquetes `@deepseek-ai/*` — el
+CLI y los paquetes se publican por separado.
 
 ## Instalación
 
@@ -76,7 +78,7 @@ subir de versión DSH el pack sigue cargando sin tocar nada.
 
 > Por qué no hay `peerDependencies` sobre `@deepseek-ai/dsh-client-locale`: node-semver
 > solo acepta un prerelease si el rango nombra ese mismo `major.minor.patch`, así que
-> `>=0.1.0-rc.6` **no** satisface a `0.1.5-rc.2`. La versión verificada está en la tabla
+> `>=0.1.0-rc.6` **no** satisface a `0.1.6-alpha.1`. La versión verificada está en la tabla
 > de arriba; el pack solo usa el API público del registro de locale
 > (`ctx.locale.addLanguage` / `ctx.locale.register`).
 
@@ -89,7 +91,7 @@ que gestiona los plugins del profile — solo necesita estar en el PATH.
 **Para instalar DSH en sí, usá npm:**
 
 ```sh
-npm install -g @deepseek-ai/dsh@0.1.5-rc.2
+npm install -g @deepseek-ai/dsh@0.1.6-alpha.1
 ```
 
 Una instalación *global* de DSH con pnpm falla al arrancar con `ERR_MODULE_NOT_FOUND`:
@@ -136,9 +138,9 @@ ver [Desarrollo](#desarrollo).
 
 ## Cobertura
 
-- **42 namespaces · 1305 claves** — 1174 traducidas.
+- **44 namespaces · 1349 claves** — 1214 traducidas.
 - Cubre el shell y los ajustes (`settings`, `settings.models`, `settings.plugins`,
-  `settings.agentPreset`, `settings.pluginInventory`, `settings.permission`), chat
+  `settings.agentPreset`, `settings.pluginInventory`, `permission.access`), chat
   y conversación (`chat`, `conversation`), `trajectory`, `workspace`, `subagent`,
   `workflowRun`, `cordis`, `deliverables`, `approval`, `plan`, `job`, `feedback`,
   `sidebar`, `common` y el resto.
@@ -210,6 +212,10 @@ del app primero corta el parseo del launcher):
 pnpm dsh web --patch <repo>/cordis.patch.yml --no-open      # correcto
 pnpm dsh web --no-open --patch <repo>/cordis.patch.yml      # error: unknown option
 ```
+
+Si el pack ya está instalado en el profile, el overlay falla con `duplicate loader
+entry id: dsh-locale-es`. Quitalo antes (`dsh plugin --profile web remove
+dsh-locale-es`) y volvé a instalarlo cuando termines.
 
 ## Terminología
 
