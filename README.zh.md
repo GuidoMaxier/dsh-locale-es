@@ -17,6 +17,19 @@
 | DeepSeek Harness（`@deepseek-ai/*`） | **0.1.6-alpha.1** |
 | Node.js | **≥ 22**（在 24 上测试） |
 
+### 兼容性
+
+一个 pack 版本可服务多个 DSH 版本：字典是各版本读取过的 namespace 的并集，多余的
+键会被忽略，缺少的键回退英文。
+
+| Pack | DSH |
+|---|---|
+| 0.1.2 | 0.1.5-rc.1 → 0.1.6-alpha.1 |
+| 0.1.1 | 0.1.5-rc.1 → 0.1.5-rc.2 |
+
+升级 DSH 不需要重装本包；见[更新语言包](#更新语言包)。
+
+
 > DSH 处于 *developer preview* 阶段，会有破坏性变更。本包只使用 locale 注册表的公开
 > API（`ctx.locale.addLanguage` / `ctx.locale.register`），因此 DSH 升级不需要改动代码，
 > 只需补充新的键（见[开发](#开发)）。

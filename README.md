@@ -19,6 +19,20 @@ claves sin traducir caen al inglés automáticamente.
 | DeepSeek Harness (`@deepseek-ai/*`) | **0.1.6-alpha.1** |
 | Node.js | **≥ 22** (probado en 24) |
 
+### Compatibilidad
+
+Una sola versión del pack sirve para varias versiones de DSH: el diccionario es la
+unión de los namespaces que alguna versión leyó, lo que sobra se ignora y lo que falta
+cae al inglés.
+
+| Pack | DSH |
+|---|---|
+| 0.1.2 | 0.1.5-rc.1 → 0.1.6-alpha.1 |
+| 0.1.1 | 0.1.5-rc.1 → 0.1.5-rc.2 |
+
+Actualizar DSH no obliga a reinstalar el pack; ver [Actualizar el pack](#actualizar-el-pack).
+
+
 > DSH está en *developer preview* y tiene cambios que rompen compatibilidad. Este pack
 > solo usa el API público del registro de locale (`ctx.locale.addLanguage` /
 > `ctx.locale.register`), así que las actualizaciones de DSH no exigen cambios de
