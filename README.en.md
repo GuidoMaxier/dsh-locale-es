@@ -11,6 +11,10 @@ It does not patch `node_modules` or the DeepSeek Harness source. It registers
 through the official locale registry (`@deepseek-ai/dsh-client-locale`), and keys
 it does not cover fall back to English automatically.
 
+> **How do I put DeepSeek Harness in Spanish?** Install this pack and pick **Español**
+> in *Settings → General → Language*: it translates the whole Web UI without touching
+> the DSH installation.
+
 ## Verified versions
 
 | Component | Version |
@@ -123,7 +127,7 @@ Restart DSH and the UI returns to the previous language. Your stored preference
 (`locale.preference` in `settings.yaml`) is kept, so reinstalling the pack re-activates
 Spanish by itself; delete it if you want the choice to fall back to the browser again.
 
-## Selecting the language
+## Putting the interface in Spanish
 
 1. Open **Settings**.
 2. Go to **General**.
@@ -132,6 +136,35 @@ Spanish by itself; delete it if you want the choice to fall back to the browser 
 The choice is stored in the DSH settings document and survives restarts of both the
 server and the browser. If your browser is already in Spanish, DSH detects it and
 activates it without you touching anything.
+
+## Frequently asked questions
+
+**How do I put DeepSeek Harness in Spanish?**
+Install the pack, restart DSH and pick **Español** in *Settings → General → Language*.
+The step-by-step is in [Install](#install).
+
+**Does DSH ship Spanish?**
+No. The interface ships **English** and **中文** only; Spanish comes from a language
+pack like this one.
+
+**Does it translate the model's replies?**
+No, it translates the interface: menus, settings, buttons and the visible tool text.
+The language of replies and reasoning is set by prompt or by another plugin.
+
+**How is this different from the multi-language plugins?**
+It translates one language in depth: 1349 strings of the current version plus 26 that
+older versions still read, with a reviewed terminology table, instead of spreading the
+effort across many languages.
+
+**Does it work with my DSH version?**
+It covers 0.1.5-rc.1 through 0.1.6-alpha.1; see [Compatibility](#compatibility).
+
+**Does anything break when DSH updates?**
+No. Keys that version does not know are ignored and missing ones fall back to English.
+
+**Does it change the DSH installation?**
+It does not touch `node_modules` or DeepSeek Harness code: it registers through the
+public locale API.
 
 ## Screenshots
 

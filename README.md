@@ -12,6 +12,10 @@ No modifica `node_modules` ni el código de DeepSeek Harness. Se registra a trav
 del sistema oficial de localización (`@deepseek-ai/dsh-client-locale`), y las
 claves sin traducir caen al inglés automáticamente.
 
+> **¿Cómo poner DeepSeek Harness en español?** Instalá este pack y elegí **Español**
+> en *Ajustes → General → Idioma*: traduce la interfaz web completa sin tocar la
+> instalación de DSH.
+
 ## Versiones verificadas
 
 | Componente | Versión |
@@ -125,7 +129,7 @@ Reiniciá DSH y la interfaz vuelve al idioma anterior. Tu preferencia guardada
 pack el español se activa solo; borrala si querés que la elección vuelva a depender del
 navegador.
 
-## Cómo elegir el idioma
+## Cómo poner la interfaz en español
 
 1. Abrí **Ajustes**.
 2. Entrá en **General**.
@@ -134,6 +138,35 @@ navegador.
 La elección se guarda en el documento de ajustes de DSH y sobrevive reinicios del
 servidor y del navegador. Si tu navegador ya está en español, DSH lo detecta y lo activa
 sin que toques nada.
+
+## Preguntas frecuentes
+
+**¿Cómo pongo DeepSeek Harness en español?**
+Instalá el pack, reiniciá DSH y elegí **Español** en *Ajustes → General → Idioma*. El
+paso a paso está en [Instalación](#instalación).
+
+**¿DSH viene con español de fábrica?**
+No. La interfaz trae solo **English** y **中文**; el español llega con un paquete de
+idioma como este.
+
+**¿Traduce las respuestas del modelo?**
+No, traduce la interfaz: menús, ajustes, botones y el texto visible de las herramientas.
+El idioma de las respuestas y del razonamiento se pide por prompt o con otro plugin.
+
+**¿En qué se diferencia de los plugins multilingües?**
+Traduce un idioma a fondo: 1349 cadenas de la versión actual más 26 que las versiones
+anteriores todavía leen, con una tabla de terminología revisada, en vez de repartir el
+esfuerzo entre muchos idiomas.
+
+**¿Funciona con mi versión de DSH?**
+Cubre de 0.1.5-rc.1 a 0.1.6-alpha.1; ver [Compatibilidad](#compatibilidad).
+
+**¿Se rompe algo al actualizar DSH?**
+No. Las claves que esa versión no conoce se ignoran y las que faltan caen al inglés.
+
+**¿Modifica la instalación de DSH?**
+No toca `node_modules` ni el código de DeepSeek Harness: se registra por el API público
+de localización.
 
 ## Capturas
 
