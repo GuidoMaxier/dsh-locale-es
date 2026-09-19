@@ -27,16 +27,19 @@ const PATTERNS = [
 const NAMESPACE_OVERRIDES: Record<string, string> = {
   'packages/client/locale/src/locales/en.ts': 'common',
   'packages/client/ui-agent-preset/src/client/locales.ts': 'settings.agentPreset',
+  'packages/client/ui-plugin-manager/src/client/locales.ts': 'pluginManager',
   'packages/client/ui-settings-general/src/client/locales.ts': 'settings',
   'packages/client/ui-settings-models/src/client/locales.ts': 'settings.models',
   'packages/client/ui-settings-plugin-inventory/src/client/locales.ts': 'settings.pluginInventory',
   'packages/client/ui-settings-plugins/src/client/locales.ts': 'settings.plugins',
   'packages/client/ui-settings-unarchive-sessions/src/client/locales.ts': 'settings.archivedSessions',
   'packages/client/ui-sidebar-terminal/src/client/locales.ts': 'sidebarTerminal',
+  'packages/client/ui-sidebar-browser/src/client/locales.ts': 'sidebarBrowser',
   'packages/client/ui-sidebar-documentpreview/src/client/code/locales.ts': 'sidebarCodePreview',
   'packages/client/ui-sidebar-documentpreview/src/client/html/locales.ts': 'documentHtml',
   'packages/client/ui-sidebar-documentpreview/src/client/image/locales.ts': 'sidebarImage',
   'packages/client/ui-sidebar-documentpreview/src/client/markdown/locales.ts': 'documentMarkdown',
+  'packages/client/ui-sidebar-documentpreview/src/client/office/locales.ts': 'sidebarOffice',
   'packages/client/ui-sidebar-documentpreview/src/client/pdf/locales.ts': 'sidebarPdf',
 }
 

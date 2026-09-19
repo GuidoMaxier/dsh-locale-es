@@ -19,7 +19,7 @@ it does not cover fall back to English automatically.
 
 | Component | Version |
 |---|---|
-| DeepSeek Harness (`@deepseek-ai/*`) | **0.1.6-alpha.1** |
+| DeepSeek Harness (`@deepseek-ai/*`) | **0.1.6-alpha.2** |
 | Node.js | **≥ 22** (tested on 24) |
 
 ### Compatibility
@@ -30,6 +30,7 @@ back to English.
 
 | Pack | DSH |
 |---|---|
+| 0.1.3 | 0.1.5-rc.1 → 0.1.6-alpha.2 |
 | 0.1.2 | 0.1.5-rc.1 → 0.1.6-alpha.1 |
 | 0.1.1 | 0.1.5-rc.1 → 0.1.5-rc.2 |
 
@@ -44,11 +45,11 @@ Updating DSH does not require reinstalling the pack; see [Updating the pack](#up
 ### Installing DSH globally
 
 ```sh
-npm install -g @deepseek-ai/dsh@0.1.6-alpha.1
+npm install -g @deepseek-ai/dsh@0.1.6-alpha.2
 ```
 
-**Do not use `@latest`**: in the npm registry that tag points to `0.1.5-rc.1`, older
-than the version this pack was tested against; the `alpha` tag points to `0.1.6-alpha.1`.
+**Do not use `@latest`**: in the npm registry that tag points to `0.1.5-rc.2`, older
+than the version this pack was tested against; the `alpha` tag points to `0.1.6-alpha.2`.
 `dsh --version` differing from the
 `@deepseek-ai/*` package versions is normal — the CLI and the packages are published
 separately.
@@ -95,7 +96,7 @@ version leaves this pack loading untouched.
 
 > Why there is no `peerDependencies` on `@deepseek-ai/dsh-client-locale`: node-semver
 > accepts a prerelease only when the range names that same `major.minor.patch`, so
-> `>=0.1.0-rc.6` does **not** satisfy `0.1.6-alpha.1`. The verified version is in the table
+> `>=0.1.0-rc.6` does **not** satisfy `0.1.6-alpha.2`. The verified version is in the table
 > above; the pack uses only the public locale-registry API
 > (`ctx.locale.addLanguage` / `ctx.locale.register`).
 
@@ -108,7 +109,7 @@ what manages profile plugins — you only need it on your PATH.
 **For installing DSH itself, use npm:**
 
 ```sh
-npm install -g @deepseek-ai/dsh@0.1.6-alpha.1
+npm install -g @deepseek-ai/dsh@0.1.6-alpha.2
 ```
 
 A *global* install of DSH with pnpm fails at startup with `ERR_MODULE_NOT_FOUND`. DSH
@@ -152,12 +153,12 @@ No, it translates the interface: menus, settings, buttons and the visible tool t
 The language of replies and reasoning is set by prompt or by another plugin.
 
 **How is this different from the multi-language plugins?**
-It translates one language in depth: 1349 strings of the current version plus 26 that
+It translates one language in depth: 1626 strings of the current version plus 39 that
 older versions still read, with a reviewed terminology table, instead of spreading the
 effort across many languages.
 
 **Does it work with my DSH version?**
-It covers 0.1.5-rc.1 through 0.1.6-alpha.1; see [Compatibility](#compatibility).
+It covers 0.1.5-rc.1 through 0.1.6-alpha.2; see [Compatibility](#compatibility).
 
 **Does anything break when DSH updates?**
 No. Keys that version does not know are ignored and missing ones fall back to English.
@@ -183,14 +184,15 @@ and your DSH version (`dsh --version`). Strings are edited in
 
 ## Scope
 
-- **44 namespaces · 1349 keys** for the current DSH — 1214 translated.
-- **+26 legacy keys** in 5 namespaces DSH no longer declares but 0.1.5 still reads,
+- **47 namespaces · 1626 keys** for the current DSH — 1477 translated.
+- **+39 legacy keys** in 8 namespaces DSH no longer declares but 0.1.5 still reads,
   so a user on `@latest` does not get new English either.
 - Covers the shell and settings (`settings`, `settings.models`, `settings.plugins`,
-  `settings.agentPreset`, `settings.pluginInventory`, `permission.access`), chat
-  and conversation (`chat`, `conversation`), `trajectory`, `workspace`, `subagent`,
-  `workflowRun`, `cordis`, `deliverables`, `approval`, `plan`, `job`, `feedback`,
-  `sidebar`, `common`, and the rest.
+  `settings.agentPreset`, `settings.pluginInventory`, `permission.access`), the plugin
+  manager (`pluginManager`), chat and conversation (`chat`, `conversation`),
+  `trajectory`, `workspace`, `subagent`, `workflowRun`, `cordis`, `deliverables`,
+  `approval`, `plan`, `job`, `feedback`, `sidebar`, `sidebarBrowser`, `sidebarOffice`,
+  `common`, and the rest.
 - Missing keys fall back to English (`es` → `en`), which is the official DSH
   mechanism, so a newer DSH never breaks the UI.
 

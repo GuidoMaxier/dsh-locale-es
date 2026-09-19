@@ -17,7 +17,7 @@
 
 | 组件 | 版本 |
 |---|---|
-| DeepSeek Harness（`@deepseek-ai/*`） | **0.1.6-alpha.1** |
+| DeepSeek Harness（`@deepseek-ai/*`） | **0.1.6-alpha.2** |
 | Node.js | **≥ 22**（在 24 上测试） |
 
 ### 兼容性
@@ -27,6 +27,7 @@
 
 | Pack | DSH |
 |---|---|
+| 0.1.3 | 0.1.5-rc.1 → 0.1.6-alpha.2 |
 | 0.1.2 | 0.1.5-rc.1 → 0.1.6-alpha.1 |
 | 0.1.1 | 0.1.5-rc.1 → 0.1.5-rc.2 |
 
@@ -40,11 +41,11 @@
 ### 全局安装 DSH
 
 ```sh
-npm install -g @deepseek-ai/dsh@0.1.6-alpha.1
+npm install -g @deepseek-ai/dsh@0.1.6-alpha.2
 ```
 
-**不要用 `@latest`**：npm 注册表上该 tag 指向 `0.1.5-rc.1`，比本包测试所用的版本更旧；
-`alpha` tag 指向 `0.1.6-alpha.1`。`dsh --version` 与 `@deepseek-ai/*` 包版本不一致是正常的 —— CLI 与包分别发布。
+**不要用 `@latest`**：npm 注册表上该 tag 指向 `0.1.5-rc.2`，比本包测试所用的版本更旧；
+`alpha` tag 指向 `0.1.6-alpha.2`。`dsh --version` 与 `@deepseek-ai/*` 包版本不一致是正常的 —— CLI 与包分别发布。
 
 ## 安装
 
@@ -83,7 +84,7 @@ dsh plugin --profile web update
 
 > 为什么没有声明 `@deepseek-ai/dsh-client-locale` 的 `peerDependencies`：node-semver
 > 只有当版本区间指明了相同的 `major.minor.patch` 时才接受 prerelease，所以
-> `>=0.1.0-rc.6` **不满足** `0.1.6-alpha.1`。已验证的版本见上表；本语言包只使用 locale
+> `>=0.1.0-rc.6` **不满足** `0.1.6-alpha.2`。已验证的版本见上表；本语言包只使用 locale
 > 注册表的公开 API（`ctx.locale.addLanguage` / `ctx.locale.register`）。
 
 ## 可以用 pnpm 代替 npm 吗？
@@ -134,11 +135,11 @@ dsh plugin --profile web remove dsh-locale-es
 或其它插件设置。
 
 **它和多语言插件有什么不同？**
-它把一种语言做深：当前版本 1349 条字串，加上旧版本仍在读取的 26 个键，并有经过
+它把一种语言做深：当前版本 1626 条字串，加上旧版本仍在读取的 39 个键，并有经过
 审核的术语表，而不是把精力分摊到多种语言。
 
 **支持哪些 DSH 版本？**
-覆盖 0.1.5-rc.1 到 0.1.6-alpha.1，见[兼容性](#兼容性)。
+覆盖 0.1.5-rc.1 到 0.1.6-alpha.2，见[兼容性](#兼容性)。
 
 **升级 DSH 会出问题吗？**
 不会。该版本不认识的键会被忽略，缺少的键回退英文。
@@ -162,14 +163,15 @@ dsh plugin --profile web remove dsh-locale-es
 
 ## 覆盖范围
 
-- **44 个 namespace · 1349 个键**（对应当前 DSH）—— 已翻译 1214 个。
-- **另有 26 个 legacy 键**，属于 5 个 DSH 已不再声明、但 0.1.5 仍在读取的
+- **47 个 namespace · 1626 个键**（对应当前 DSH）—— 已翻译 1477 个。
+- **另有 39 个 legacy 键**，属于 8 个 DSH 已不再声明、但 0.1.5 仍在读取的
   namespace，因此用 `@latest` 的用户也不会看到新的英文。
 - 覆盖 shell 与设置（`settings`、`settings.models`、`settings.plugins`、
   `settings.agentPreset`、`settings.pluginInventory`、`permission.access`）、
-  对话（`chat`、`conversation`）、`trajectory`、`workspace`、`subagent`、
-  `workflowRun`、`cordis`、`deliverables`、`approval`、`plan`、`job`、`feedback`、
-  `sidebar`、`common` 等。
+  插件管理器（`pluginManager`）、对话（`chat`、`conversation`）、`trajectory`、
+  `workspace`、`subagent`、`workflowRun`、`cordis`、`deliverables`、`approval`、
+  `plan`、`job`、`feedback`、`sidebar`、`sidebarBrowser`、`sidebarOffice`、
+  `common` 等。
 - 未覆盖的键回退到英文（`es` → `en`），这是 DSH 的官方机制，因此更新的 DSH 也不会
   破坏界面。
 

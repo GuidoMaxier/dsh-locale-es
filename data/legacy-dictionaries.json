@@ -16,10 +16,18 @@
     "input.accessMode": "Modo de acceso, actual: {name}"
   },
   "deliverables": {
-    "presented.open": "Abrir {name} en la app por defecto"
+    "presented.open": "Abrir {name} en la app por defecto",
+    "produced.label": "Archivos modificados",
+    "produced.more": "+ {count} archivos",
+    "produced.moreOne": "+ 1 archivo",
+    "produced.open": "Abrir {name}"
   },
   "settings": {
     "connection.retry": "Reconectar ahora"
+  },
+  "settings.models": {
+    "modelContextWindow": "Ventana de contexto",
+    "modelMaxTokens": "Tokens máximos de salida"
   },
   "settings.permission": {
     "confirm.acknowledge": "Entiendo los riesgos y quiero continuar",
@@ -34,5 +42,16 @@
     "preset.workspaceWrite": "Escritura en el workspace",
     "title": "Permisos",
     "unavailable": "No disponible"
+  },
+  "settings.plugins": {
+    "collapse": "Ocultar los ajustes",
+    "configurableTab": "Configuración del plugin",
+    "discard": "Descartar",
+    "expand": "Mostrar los ajustes",
+    "subagentModelSelectionDescription": "Controla qué modelos pueden elegir los agentes para los subagentes.",
+    "unsaved": "Sin guardar"
+  },
+  "trajectory": {
+    "layout.imageOnly": "Imágenes ×{count}"
   }
 }

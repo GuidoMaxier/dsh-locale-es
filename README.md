@@ -20,7 +20,7 @@ claves sin traducir caen al inglés automáticamente.
 
 | Componente | Versión |
 |---|---|
-| DeepSeek Harness (`@deepseek-ai/*`) | **0.1.6-alpha.1** |
+| DeepSeek Harness (`@deepseek-ai/*`) | **0.1.6-alpha.2** |
 | Node.js | **≥ 22** (probado en 24) |
 
 ### Compatibilidad
@@ -31,6 +31,7 @@ cae al inglés.
 
 | Pack | DSH |
 |---|---|
+| 0.1.3 | 0.1.5-rc.1 → 0.1.6-alpha.2 |
 | 0.1.2 | 0.1.5-rc.1 → 0.1.6-alpha.1 |
 | 0.1.1 | 0.1.5-rc.1 → 0.1.5-rc.2 |
 
@@ -45,11 +46,11 @@ Actualizar DSH no obliga a reinstalar el pack; ver [Actualizar el pack](#actuali
 ### Si instalás DSH globalmente
 
 ```sh
-npm install -g @deepseek-ai/dsh@0.1.6-alpha.1
+npm install -g @deepseek-ai/dsh@0.1.6-alpha.2
 ```
 
-**No uses `@latest`**: en el registro de npm ese tag apunta a `0.1.5-rc.1`, anterior a
-la versión contra la que se probó este pack; el tag `alpha` apunta a `0.1.6-alpha.1`.
+**No uses `@latest`**: en el registro de npm ese tag apunta a `0.1.5-rc.2`, anterior a
+la versión contra la que se probó este pack; el tag `alpha` apunta a `0.1.6-alpha.2`.
 Es normal que `dsh --version` difiera de la versión de los paquetes `@deepseek-ai/*` — el
 CLI y los paquetes se publican por separado.
 
@@ -96,7 +97,7 @@ subir de versión DSH el pack sigue cargando sin tocar nada.
 
 > Por qué no hay `peerDependencies` sobre `@deepseek-ai/dsh-client-locale`: node-semver
 > solo acepta un prerelease si el rango nombra ese mismo `major.minor.patch`, así que
-> `>=0.1.0-rc.6` **no** satisface a `0.1.6-alpha.1`. La versión verificada está en la tabla
+> `>=0.1.0-rc.6` **no** satisface a `0.1.6-alpha.2`. La versión verificada está en la tabla
 > de arriba; el pack solo usa el API público del registro de locale
 > (`ctx.locale.addLanguage` / `ctx.locale.register`).
 
@@ -109,7 +110,7 @@ que gestiona los plugins del profile — solo necesita estar en el PATH.
 **Para instalar DSH en sí, usá npm:**
 
 ```sh
-npm install -g @deepseek-ai/dsh@0.1.6-alpha.1
+npm install -g @deepseek-ai/dsh@0.1.6-alpha.2
 ```
 
 Una instalación *global* de DSH con pnpm falla al arrancar con `ERR_MODULE_NOT_FOUND`:
@@ -154,12 +155,12 @@ No, traduce la interfaz: menús, ajustes, botones y el texto visible de las herr
 El idioma de las respuestas y del razonamiento se pide por prompt o con otro plugin.
 
 **¿En qué se diferencia de los plugins multilingües?**
-Traduce un idioma a fondo: 1349 cadenas de la versión actual más 26 que las versiones
+Traduce un idioma a fondo: 1626 cadenas de la versión actual más 39 que las versiones
 anteriores todavía leen, con una tabla de terminología revisada, en vez de repartir el
 esfuerzo entre muchos idiomas.
 
 **¿Funciona con mi versión de DSH?**
-Cubre de 0.1.5-rc.1 a 0.1.6-alpha.1; ver [Compatibilidad](#compatibilidad).
+Cubre de 0.1.5-rc.1 a 0.1.6-alpha.2; ver [Compatibilidad](#compatibilidad).
 
 **¿Se rompe algo al actualizar DSH?**
 No. Las claves que esa versión no conoce se ignoran y las que faltan caen al inglés.
@@ -185,14 +186,15 @@ ver [Desarrollo](#desarrollo).
 
 ## Cobertura
 
-- **44 namespaces · 1349 claves** de la versión actual de DSH — 1214 traducidas.
-- **+26 claves legacy** en 5 namespaces que DSH ya no declara pero que 0.1.5 todavía
+- **47 namespaces · 1626 claves** de la versión actual de DSH — 1477 traducidas.
+- **+39 claves legacy** en 8 namespaces que DSH ya no declara pero que 0.1.5 todavía
   lee, así que un usuario con `@latest` tampoco ve inglés nuevo.
 - Cubre el shell y los ajustes (`settings`, `settings.models`, `settings.plugins`,
-  `settings.agentPreset`, `settings.pluginInventory`, `permission.access`), chat
-  y conversación (`chat`, `conversation`), `trajectory`, `workspace`, `subagent`,
-  `workflowRun`, `cordis`, `deliverables`, `approval`, `plan`, `job`, `feedback`,
-  `sidebar`, `common` y el resto.
+  `settings.agentPreset`, `settings.pluginInventory`, `permission.access`), el gestor
+  de plugins (`pluginManager`), chat y conversación (`chat`, `conversation`),
+  `trajectory`, `workspace`, `subagent`, `workflowRun`, `cordis`, `deliverables`,
+  `approval`, `plan`, `job`, `feedback`, `sidebar`, `sidebarBrowser`, `sidebarOffice`,
+  `common` y el resto.
 - Las claves sin cubrir caen al inglés (`es` → `en`), que es el mecanismo oficial
   de DSH: una versión más nueva nunca rompe la interfaz.
 
